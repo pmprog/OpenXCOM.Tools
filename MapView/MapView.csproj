@@ -1,0 +1,287 @@
+﻿<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <ProjectType>Local</ProjectType>
+    <ProductVersion>8.0.50727</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{AAB9EA5A-403E-488D-894F-6014B85D09CC}</ProjectGuid>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ApplicationIcon>MapEdit.ico</ApplicationIcon>
+    <AssemblyKeyContainerName>
+    </AssemblyKeyContainerName>
+    <AssemblyName>MapView</AssemblyName>
+    <AssemblyOriginatorKeyFile>keyFile.snk</AssemblyOriginatorKeyFile>
+    <DefaultClientScript>JScript</DefaultClientScript>
+    <DefaultHTMLPageLayout>Grid</DefaultHTMLPageLayout>
+    <DefaultTargetSchema>IE50</DefaultTargetSchema>
+    <DelaySign>false</DelaySign>
+    <OutputType>WinExe</OutputType>
+    <RootNamespace>MapView</RootNamespace>
+    <StartupObject>
+    </StartupObject>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <UpgradeBackupLocation>
+    </UpgradeBackupLocation>
+    <SignAssembly>true</SignAssembly>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <OutputPath>bin\Debug\</OutputPath>
+    <AllowUnsafeBlocks>false</AllowUnsafeBlocks>
+    <BaseAddress>285212672</BaseAddress>
+    <CheckForOverflowUnderflow>false</CheckForOverflowUnderflow>
+    <ConfigurationOverrideFile>
+    </ConfigurationOverrideFile>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DocumentationFile>
+    </DocumentationFile>
+    <DebugSymbols>true</DebugSymbols>
+    <FileAlignment>4096</FileAlignment>
+    <Optimize>false</Optimize>
+    <RegisterForComInterop>false</RegisterForComInterop>
+    <RemoveIntegerChecks>false</RemoveIntegerChecks>
+    <TreatWarningsAsErrors>false</TreatWarningsAsErrors>
+    <WarningLevel>4</WarningLevel>
+    <DebugType>full</DebugType>
+    <ErrorReport>prompt</ErrorReport>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <OutputPath>bin\Release\</OutputPath>
+    <AllowUnsafeBlocks>false</AllowUnsafeBlocks>
+    <BaseAddress>285212672</BaseAddress>
+    <CheckForOverflowUnderflow>false</CheckForOverflowUnderflow>
+    <ConfigurationOverrideFile>
+    </ConfigurationOverrideFile>
+    <DefineConstants>TRACE</DefineConstants>
+    <DocumentationFile>
+    </DocumentationFile>
+    <DebugSymbols>false</DebugSymbols>
+    <FileAlignment>4096</FileAlignment>
+    <Optimize>true</Optimize>
+    <RegisterForComInterop>false</RegisterForComInterop>
+    <RemoveIntegerChecks>false</RemoveIntegerChecks>
+    <TreatWarningsAsErrors>false</TreatWarningsAsErrors>
+    <WarningLevel>4</WarningLevel>
+    <DebugType>none</DebugType>
+    <ErrorReport>prompt</ErrorReport>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System">
+      <Name>System</Name>
+    </Reference>
+    <Reference Include="System.Data">
+      <Name>System.Data</Name>
+    </Reference>
+    <Reference Include="System.Design">
+      <Name>System.Design</Name>
+    </Reference>
+    <Reference Include="System.Drawing">
+      <Name>System.Drawing</Name>
+    </Reference>
+    <Reference Include="System.Web.Services">
+      <Name>System.Web.Services</Name>
+    </Reference>
+    <Reference Include="System.Windows.Forms">
+      <Name>System.Windows.Forms</Name>
+    </Reference>
+    <Reference Include="System.Xml">
+      <Name>System.XML</Name>
+    </Reference>
+    <ProjectReference Include="..\DSShared\DSShared.csproj">
+      <Project>{A8A39824-E51C-426B-A449-9780BF9E2DF6}</Project>
+      <Name>DSShared</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\XCom\XCom.csproj">
+      <Name>XCom</Name>
+      <Project>{66DC3C20-8041-48DD-962B-DEA050F89179}</Project>
+      <Package>{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</Package>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="ExportForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\AboutWindow.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\AboutWindow.Designer.cs">
+      <DependentUpon>AboutWindow.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Args.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Map_Observer_Control.cs">
+    </Compile>
+    <Compile Include="Map_Observer_Form.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="RmpViewForm\MapPanel.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Startup.cs" />
+    <Compile Include="TopViewForm\BottomPanel.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="ByteView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ChangeMapSizeForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ChoiceDialog.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CopyForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CopyGroup.cs">
+    </Compile>
+    <Compile Include="Cursor.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Dialog.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Globals.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="HelpScreen.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="InstallWindow.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="InstallWindow.Designer.cs">
+      <DependentUpon>InstallWindow.cs</DependentUpon>
+    </Compile>
+    <Compile Include="LoadingForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MapInfoForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MapViewPanel\MapViewPanel.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="NewMapForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="NoDirForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PathsEditor.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+      <DependentUpon>Settings.settings</DependentUpon>
+    </Compile>
+    <Compile Include="PropertyForm.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="RmpViewForm\RmpView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="RmpViewForm\RmpView.Designer.cs">
+      <DependentUpon>RmpView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Settings.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="SubsetForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="TilesetForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="TileView\TileView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SimpleMapPanel.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="TopViewForm\TopView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="TopViewForm\TopView.Designer.cs">
+      <DependentUpon>TopView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="TopViewForm\TopViewPanel.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="TreeEditor.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Updator.cs" />
+    <Compile Include="MapViewPanel\View.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="_MainWindow.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="_MainWindow.Designer.cs">
+      <DependentUpon>_MainWindow.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="RmpViewForm\RmpView.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>RmpView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="TileView\TileView.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>TileView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="TopViewForm\TopView.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>TopView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="_Embedded\ImagesTFTD.dat" />
+    <EmbeddedResource Include="_Embedded\ImagesUFO.dat" />
+    <EmbeddedResource Include="InstallWindow.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>InstallWindow.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="_Embedded\MapEditTFTD.dat" />
+    <EmbeddedResource Include="_Embedded\MapEditUFO.dat" />
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <SubType>Designer</SubType>
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="_Embedded\copy.gif" />
+    <EmbeddedResource Include="_Embedded\cut.gif" />
+    <EmbeddedResource Include="_Embedded\down.gif" />
+    <EmbeddedResource Include="_Embedded\Extra.PCK" />
+    <EmbeddedResource Include="_Embedded\Extra.TAB" />
+    <EmbeddedResource Include="_Embedded\paste.gif" />
+    <EmbeddedResource Include="_Embedded\up.gif" />
+    <EmbeddedResource Include="_MainWindow.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>_MainWindow.cs</DependentUpon>
+    </EmbeddedResource>
+    <Content Include="MapEdit.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="keyFile.snk" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <PropertyGroup>
+    <PreBuildEvent>
+    </PreBuildEvent>
+    <PostBuildEvent>
+    </PostBuildEvent>
+  </PropertyGroup>
+</Project>

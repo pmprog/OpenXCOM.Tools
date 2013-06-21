@@ -1,0 +1,265 @@
+﻿<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <ProjectType>Local</ProjectType>
+    <ProductVersion>8.0.50727</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{66DC3C20-8041-48DD-962B-DEA050F89179}</ProjectGuid>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ApplicationIcon>
+    </ApplicationIcon>
+    <AssemblyKeyContainerName>
+    </AssemblyKeyContainerName>
+    <AssemblyName>XCom</AssemblyName>
+    <AssemblyOriginatorKeyFile>keyFile.snk</AssemblyOriginatorKeyFile>
+    <DefaultClientScript>JScript</DefaultClientScript>
+    <DefaultHTMLPageLayout>Grid</DefaultHTMLPageLayout>
+    <DefaultTargetSchema>IE50</DefaultTargetSchema>
+    <DelaySign>false</DelaySign>
+    <OutputType>Library</OutputType>
+    <RootNamespace>XCom</RootNamespace>
+    <StartupObject>
+    </StartupObject>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <UpgradeBackupLocation>
+    </UpgradeBackupLocation>
+    <SignAssembly>true</SignAssembly>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <OutputPath>bin\Debug\</OutputPath>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+    <BaseAddress>285212672</BaseAddress>
+    <CheckForOverflowUnderflow>false</CheckForOverflowUnderflow>
+    <ConfigurationOverrideFile>
+    </ConfigurationOverrideFile>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DocumentationFile>
+    </DocumentationFile>
+    <DebugSymbols>true</DebugSymbols>
+    <FileAlignment>4096</FileAlignment>
+    <Optimize>false</Optimize>
+    <RegisterForComInterop>false</RegisterForComInterop>
+    <RemoveIntegerChecks>false</RemoveIntegerChecks>
+    <TreatWarningsAsErrors>false</TreatWarningsAsErrors>
+    <WarningLevel>4</WarningLevel>
+    <DebugType>full</DebugType>
+    <ErrorReport>prompt</ErrorReport>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <OutputPath>bin\Release\</OutputPath>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+    <BaseAddress>285212672</BaseAddress>
+    <CheckForOverflowUnderflow>false</CheckForOverflowUnderflow>
+    <ConfigurationOverrideFile>
+    </ConfigurationOverrideFile>
+    <DefineConstants>TRACE</DefineConstants>
+    <DocumentationFile>
+    </DocumentationFile>
+    <DebugSymbols>false</DebugSymbols>
+    <FileAlignment>4096</FileAlignment>
+    <Optimize>true</Optimize>
+    <RegisterForComInterop>false</RegisterForComInterop>
+    <RemoveIntegerChecks>false</RemoveIntegerChecks>
+    <TreatWarningsAsErrors>false</TreatWarningsAsErrors>
+    <WarningLevel>4</WarningLevel>
+    <DebugType>none</DebugType>
+    <ErrorReport>prompt</ErrorReport>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System">
+      <Name>System</Name>
+    </Reference>
+    <Reference Include="System.Data">
+      <Name>System.Data</Name>
+    </Reference>
+    <Reference Include="System.Drawing">
+      <Name>System.Drawing</Name>
+    </Reference>
+    <Reference Include="System.Windows.Forms">
+      <Name>System.Windows.Forms</Name>
+    </Reference>
+    <Reference Include="System.Xml">
+      <Name>System.XML</Name>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="FileDesc\FileDesc.cs" />
+    <Compile Include="GameFiles\Images\Collections\DotNetCollection.cs" />
+    <Compile Include="GameFiles\Images\xcFiles\xcBdy.cs" />
+    <Compile Include="GameFiles\Images\xcFiles\xcSpk.cs" />
+    <Compile Include="Interfaces\Base\IMapTile.cs" />
+    <Compile Include="Interfaces\Base\IMap_Base.cs" />
+    <Compile Include="Interfaces\Base\IMap_Observer.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="GameFiles\Images\Collections\PckFile.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="GameFiles\Images\Collections\UncompressedCollection.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="GameFiles\Images\Collections\XCImageCollection.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="GameFiles\Images\ImageDescriptor.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="GameFiles\Images\ImageInfo.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="GameFiles\Images\Types\BDYImage.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="GameFiles\Images\Types\Bmp.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="GameFiles\Images\Types\PckImage.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="GameFiles\Images\Types\Empty Files\SCRImage.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="GameFiles\Images\Types\SPKImage.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="GameFiles\Images\Types\XCImage.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="GameFiles\Images\xcFiles\xcPck.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="GameFiles\Images\xcFiles\xcUncompressed.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="GameFiles\Map\BlankFile.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="GameFiles\Map\XCMapFile.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="GameFiles\Map\MapTile.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="GameFiles\Map\McdEntry.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="GameFiles\Map\McdFile.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="GameFiles\Map\RmpFile.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="GameFiles\Map\StrEnum.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="GameFiles\Map\XCTile.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="FileDesc\TilesetDesc.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="FileDesc\XCTileset.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="GameFiles\VarCollection.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="GameFiles\Variable.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="GameInfo.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Globals.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Interfaces\Base\IInfo.cs" />
+    <Compile Include="Interfaces\Base\IMapDesc.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Interfaces\Base\ITile.cs" />
+    <Compile Include="Interfaces\Base\ITileset.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Interfaces\IXCImageFile.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="FileDesc\XCMapDesc.cs" />
+    <Compile Include="Interfaces\IXCTileset.cs" />
+    <Compile Include="LogFile.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="MapSize.cs" />
+    <Compile Include="Palette.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="ParseErrors.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MapLocation.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+      <DependentUpon>Settings.settings</DependentUpon>
+    </Compile>
+    <Compile Include="SharedSpace.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Updator.cs" />
+    <Compile Include="ConsoleForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ConsoleForm.Designer.cs">
+      <DependentUpon>ConsoleForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="xConsole.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <SubType>Designer</SubType>
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ConsoleForm.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>ConsoleForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="_Embedded\tftd-battle.pal" />
+    <EmbeddedResource Include="_Embedded\tftd-geo.pal" />
+    <EmbeddedResource Include="_Embedded\tftd-graph.pal" />
+    <EmbeddedResource Include="_Embedded\tftd-research.pal" />
+    <EmbeddedResource Include="_Embedded\ufo-battle.pal" />
+    <EmbeddedResource Include="_Embedded\ufo-geo.pal" />
+    <EmbeddedResource Include="_Embedded\ufo-graph.pal" />
+    <EmbeddedResource Include="_Embedded\ufo-research.pal" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\DSShared\DSShared.csproj">
+      <Project>{A8A39824-E51C-426B-A449-9780BF9E2DF6}</Project>
+      <Name>DSShared</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="keyFile.snk" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <PropertyGroup>
+    <PreBuildEvent>
+    </PreBuildEvent>
+    <PostBuildEvent>
+    </PostBuildEvent>
+  </PropertyGroup>
+</Project>

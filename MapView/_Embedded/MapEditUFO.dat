@@ -1,0 +1,222 @@
+${ufoPath}:${ufo}
+
+${rootPathUFO}:${ufoPath}\MAPS\
+${rmpPathUFO}:${ufoPath}\ROUTES\
+${blankUFO}:##RunPath##\BLANKS\UFO\
+
+Tileset:UFO - Terrain
+	type:1
+	rootpath:${rootPathUFO}
+	rmpPath:${rmpPathUFO}
+	blankPath:${blankUFO}
+	palette:UFO
+	
+	files:Jungle
+		${dep}:JUNGLE
+		JUNGLE00:${dep} 
+		JUNGLE01:${dep} 
+		JUNGLE02:${dep} 
+		JUNGLE03:${dep} 
+		JUNGLE04:${dep} 
+		JUNGLE05:${dep} 
+		JUNGLE06:${dep} 
+		JUNGLE07:${dep} 
+		JUNGLE08:${dep} 
+		JUNGLE09:${dep} 
+		JUNGLE10:${dep} 
+		JUNGLE11:${dep} 
+	end
+	
+	files:Farm
+		${dep}:CULTIVAT BARN
+		CULTA00:${dep}
+		CULTA01:${dep}
+		CULTA02:${dep}
+		CULTA03:${dep}
+		CULTA04:${dep}
+		CULTA05:${dep}
+		CULTA06:${dep}
+		CULTA07:${dep}
+		CULTA08:${dep}
+		CULTA09:${dep}
+		CULTA10:${dep}
+		CULTA11:${dep}
+		CULTA12:${dep}
+		CULTA13:${dep}
+		CULTA14:${dep}
+		CULTA15:${dep}
+		CULTA16:${dep}
+		CULTA17:${dep}
+		CULTA18:${dep}
+	end
+	
+	files:Forest
+		${dep}:FOREST
+		FOREST00:${dep}
+		FOREST01:${dep}
+		FOREST02:${dep}
+		FOREST03:${dep}
+		FOREST04:${dep}
+		FOREST05:${dep}
+		FOREST06:${dep}
+		FOREST07:${dep}
+		FOREST08:${dep}
+		FOREST09:${dep}
+		FOREST10:${dep}
+		FOREST11:${dep}
+	end
+	
+	files:XCom Base
+		${dep}:XBASE1 XBASE2 
+		XBASE_00:${dep}
+		XBASE_01:${dep}
+		XBASE_02:${dep}
+		XBASE_03:${dep}
+		XBASE_04:${dep}
+		XBASE_05:${dep}
+		XBASE_06:${dep}
+		XBASE_07:${dep}
+		XBASE_08:${dep}
+		XBASE_09:${dep}
+		XBASE_10:${dep}
+		XBASE_11:${dep}
+		XBASE_12:${dep}
+		XBASE_13:${dep}
+		XBASE_14:${dep}
+		XBASE_15:${dep}
+		XBASE_16:${dep}
+		XBASE_17:${dep}
+		XBASE_18:${dep}
+		XBASE_19:${dep}
+		XBASE_20:${dep}
+	end
+	
+	files:Alien Base
+		${dep}:U_BASE U_WALL02 U_PODS BRAIN
+		UBASE_00:${dep}
+		UBASE_01:${dep}
+		UBASE_02:${dep}
+		UBASE_03:${dep}
+		UBASE_04:${dep}
+		UBASE_05:${dep}
+		UBASE_06:${dep}
+		UBASE_07:${dep}
+		UBASE_08:${dep}
+		UBASE_09:${dep}
+		UBASE_10:${dep}
+		UBASE_11:${dep}
+		UBASE_12:${dep}
+		UBASE_13:${dep}
+		UBASE_14:${dep}
+		UBASE_15:${dep}		
+	end
+	
+	files:City Terror Site	
+		${dep}:ROADS urbits URBAN FRNITURE 
+		URBAN00:${dep}
+		URBAN01:${dep}
+		URBAN02:${dep}
+		URBAN03:${dep}
+		URBAN04:${dep}
+		URBAN05:${dep}
+		URBAN06:${dep}
+		URBAN07:${dep}
+		URBAN08:${dep}
+		URBAN09:${dep}
+		URBAN14:${dep}
+		URBAN15:${dep}
+		URBAN16:${dep}
+		URBAN17:${dep}
+		URBAN18:${dep}
+	end
+	
+	files:Desert
+		${dep}:DESERT
+		DESERT00:${dep}
+		DESERT01:${dep}
+		DESERT02:${dep}
+		DESERT03:${dep}
+		DESERT04:${dep}
+		DESERT05:${dep}
+		DESERT06:${dep}
+		DESERT07:${dep}
+		DESERT08:${dep}
+		DESERT09:${dep}
+		DESERT10:${dep}
+		DESERT11:${dep}
+	end
+	
+	files:Mountain
+		${dep}:MOUNT
+		MOUNT00:${dep}
+		MOUNT01:${dep}
+		MOUNT02:${dep}
+		MOUNT03:${dep}
+		MOUNT04:${dep}
+		MOUNT05:${dep}
+		MOUNT06:${dep}
+		MOUNT07:${dep}
+		MOUNT08:${dep}
+		MOUNT09:${dep}
+		MOUNT10:${dep} 
+		MOUNT11:${dep}
+		MOUNT12:${dep} 
+	end
+	
+	files:Arctic
+		${dep}:POLAR
+		POLAR00:${dep}
+		POLAR01:${dep}
+		POLAR02:${dep}
+		POLAR03:${dep}
+		POLAR04:${dep}
+		POLAR05:${dep}
+		POLAR06:${dep}
+		POLAR07:${dep}
+		POLAR08:${dep}
+		POLAR09:${dep}
+		POLAR10:${dep}
+		POLAR11:${dep}
+		POLAR12:${dep}
+		POLAR13:${dep}
+	end
+	
+	files:Cydonia	
+		${dep}:MARS U_WALL02 
+		MARS00:${dep}
+		MARS01:${dep}
+		MARS02:${dep}
+		MARS03:${dep}
+		MARS04:${dep}
+		MARS05:${dep}
+		MARS06:${dep}
+		MARS07:${dep}
+		MARS08:${dep}
+		MARS09:${dep}
+		MARS10:${dep}
+	end
+end
+Tileset:UFO - Ships
+	type:1
+	rootpath:${rootPathUFO}
+	rmpPath:${rmpPathUFO}
+	blankPath:${blankUFO}
+	palette:ufo
+	files:XCom
+		PLANE:plane 
+		LIGHTNIN:LIGHTNIN 
+		AVENGER:AVENGER 
+	end
+	files:Alien
+		UFO_000:U_EXT02 U_WALL02 U_DISEC2 U_BITS 
+		UFO_01a:U_EXT02 U_WALL02 U_DISEC2 U_BITS 
+		UFO_010:U_EXT02 U_WALL02 U_DISEC2 U_BITS 
+		UFO_110:U_EXT02 U_WALL02 U_BITS 
+		UFO_120:U_EXT02 U_WALL02 U_BITS 
+		UFO_130:U_EXT02 U_WALL02 U_DISEC2 U_BITS 
+		UFO_140:U_EXT02 U_WALL02 U_OPER2 U_BITS 
+		UFO_150:U_EXT02 U_WALL02 U_PODS U_BITS 
+		UFO_160:U_EXT02 U_WALL02 U_PODS U_BITS 
+		UFO_170:U_EXT02 U_WALL02 U_DISEC2 U_BITS 
+	end     
+end  

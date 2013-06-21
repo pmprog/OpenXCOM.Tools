@@ -1,0 +1,204 @@
+﻿<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <ProjectType>Local</ProjectType>
+    <ProductVersion>8.0.50727</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{A8A39824-E51C-426B-A449-9780BF9E2DF6}</ProjectGuid>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ApplicationIcon>
+    </ApplicationIcon>
+    <AssemblyKeyContainerName>
+    </AssemblyKeyContainerName>
+    <AssemblyName>DSShared</AssemblyName>
+    <AssemblyOriginatorKeyFile>keyFile.snk</AssemblyOriginatorKeyFile>
+    <DefaultClientScript>JScript</DefaultClientScript>
+    <DefaultHTMLPageLayout>Grid</DefaultHTMLPageLayout>
+    <DefaultTargetSchema>IE50</DefaultTargetSchema>
+    <DelaySign>false</DelaySign>
+    <OutputType>Library</OutputType>
+    <RootNamespace>DSShared</RootNamespace>
+    <StartupObject>
+    </StartupObject>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <UpgradeBackupLocation>
+    </UpgradeBackupLocation>
+    <SignAssembly>true</SignAssembly>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <OutputPath>bin\Debug\</OutputPath>
+    <AllowUnsafeBlocks>false</AllowUnsafeBlocks>
+    <BaseAddress>285212672</BaseAddress>
+    <CheckForOverflowUnderflow>false</CheckForOverflowUnderflow>
+    <ConfigurationOverrideFile>
+    </ConfigurationOverrideFile>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DocumentationFile>bin\Debug\DSShared.XML</DocumentationFile>
+    <DebugSymbols>true</DebugSymbols>
+    <FileAlignment>4096</FileAlignment>
+    <Optimize>false</Optimize>
+    <RegisterForComInterop>false</RegisterForComInterop>
+    <RemoveIntegerChecks>false</RemoveIntegerChecks>
+    <TreatWarningsAsErrors>false</TreatWarningsAsErrors>
+    <WarningLevel>4</WarningLevel>
+    <DebugType>full</DebugType>
+    <ErrorReport>prompt</ErrorReport>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <OutputPath>bin\Release\</OutputPath>
+    <AllowUnsafeBlocks>false</AllowUnsafeBlocks>
+    <BaseAddress>285212672</BaseAddress>
+    <CheckForOverflowUnderflow>false</CheckForOverflowUnderflow>
+    <ConfigurationOverrideFile>
+    </ConfigurationOverrideFile>
+    <DefineConstants>TRACE</DefineConstants>
+    <DocumentationFile>
+    </DocumentationFile>
+    <DebugSymbols>false</DebugSymbols>
+    <FileAlignment>4096</FileAlignment>
+    <Optimize>true</Optimize>
+    <RegisterForComInterop>false</RegisterForComInterop>
+    <RemoveIntegerChecks>false</RemoveIntegerChecks>
+    <TreatWarningsAsErrors>false</TreatWarningsAsErrors>
+    <WarningLevel>4</WarningLevel>
+    <DebugType>none</DebugType>
+    <ErrorReport>prompt</ErrorReport>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System">
+      <Name>System</Name>
+    </Reference>
+    <Reference Include="System.Data">
+      <Name>System.Data</Name>
+    </Reference>
+    <Reference Include="System.Design">
+      <Name>System.Design</Name>
+    </Reference>
+    <Reference Include="System.Drawing">
+      <Name>System.Drawing</Name>
+    </Reference>
+    <Reference Include="System.Windows.Forms">
+      <Name>System.Windows.Forms</Name>
+    </Reference>
+    <Reference Include="System.Xml">
+      <Name>System.XML</Name>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="DB\DBTableType.cs" />
+    <Compile Include="Interfaces\IUpdater.cs" />
+    <Compile Include="Interfaces\IOpenSave.cs" />
+    <Compile Include="FilterBy.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DB\Access\Access_DBInterface.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DB\Access\Access_DBTable.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DB\DBColumnAttribute.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DB\DBTableTypeCache.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DB\MySql\MySQL_DBInterface.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DB\MySql\MySQL_DBTable.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DB\WhereCol.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Exceptions\ObjPropertyNullValueException.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Lists\CustomList.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Lists\CustomListColumn.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Lists\CustomListColumnCollection.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Lists\EditStrAttribute.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Lists\ObjProperty.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Lists\ObjRow.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Interfaces\IAssemblyLoadable.cs" />
+    <Compile Include="Loadable\LoadOfType.cs" />
+    <Compile Include="parser\old_VarCollection.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="parser\new_VarCollection.cs" />
+    <Compile Include="parser\VarCollection_Structure.cs" />
+    <Compile Include="parser\old_Variable.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="parser\new_Variable.cs" />
+    <Compile Include="PathInfo.cs" />
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+      <DependentUpon>Settings.settings</DependentUpon>
+    </Compile>
+    <Compile Include="StrInt.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Updator.cs" />
+    <Compile Include="Windows\CollapsibleSplitter.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Windows\DoubleBufferControl.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Windows\InputBox.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Windows\InputBox.Designer.cs">
+      <DependentUpon>InputBox.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Windows\ProgressWindow.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Windows\RegistryInfo.cs">
+      <SubType>Code</SubType>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="keyFile.snk" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <SubType>Designer</SubType>
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+  </ItemGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <PropertyGroup>
+    <PreBuildEvent>
+    </PreBuildEvent>
+    <PostBuildEvent>
+    </PostBuildEvent>
+  </PropertyGroup>
+</Project>

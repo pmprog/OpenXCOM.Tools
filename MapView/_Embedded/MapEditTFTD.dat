@@ -1,0 +1,465 @@
+# almost all of the entries in this file consist of a very simple structure
+# keyword:value
+# all the keywords that matter are used in this file
+# keywords should not be case sensitive, KEYWORD is the same as keyword
+
+# variables are defined just like keywords except they start with a $
+# to use variables just place them where you want the text to be replaced
+# variables are case sensitive, ${txt} is different than ${TXT}
+#
+# Example
+#
+# ${txt}:Stuff
+# thisText:${txt} 
+#
+# translates into 
+#
+# thisText:Stuff
+
+
+# after using the paths editor, these comments will disappear
+# to get them back, run the installer by clicking the button in the paths editor
+#############
+# BE WARNED #
+#############
+# clicking the install button will destroy your existing mapedit.dat and image.dat
+# files, so back them up if they are important
+${tftdPath}:${tftd}
+
+${rootPath}:${tftdPath}\MAPS\
+${rmpPath}:${tftdPath}\ROUTES\
+${blankPath}:##RunPath##\BLANKS\TFTD\
+
+# The Tileset keyword defines top-level nodes in the tree view.
+# The value is the name of the top-level node
+Tileset:TFTD - Terrain
+
+	# in order for the map editor to work and parse this file correctly, every 
+	# tileset must be of type 1, and the type MUST BE THE FIRST LINE AFTER Tileset
+	type:1
+	
+	# this defines the palette to be used to color all the images that are used for the 
+	# files in this tileset. You have two options, ufo or tftd
+	palette:tftd
+	
+	# the rootpath keyword defines the directory where ALL the .map files can be found
+	rootpath:${rootPath}
+	
+	# the rmpPath keyword defines the directory where ALL the .rmp files can be found
+	rmppath:${rmpPath}
+	
+	blankPath:${blankPath}
+	
+	# spaces can be used in variable values
+	${deps}:SAND ROCKS WEEDS PYRAMID UFOBITS
+	
+	# the files keyword defines a subset of a tileset. the value of the keyword
+	# is the name given to the subset
+	files:Alien Artifact Site 1
+	
+	# Each entry under the files keyword corresponds to a file that exists
+	# in the directory defined by rootpath and rmppath above
+	# the value is a list of images (defined in images.dat) that are used
+	# to draw the tiles that make up the specified map
+	# ORDER MATTERS. Since all the files in a subset use the same image
+	# order, they are usually defined in a variable and used that way. 
+	# image entries are case sensitive. If you have images defined here in 
+	# lowercase and your images.dat file is all uppercase, you will have problems
+		ALART09:${deps}
+		ALART04:${deps}
+		ALART10:${deps}
+		ALART00:${deps}
+		ALART01:${deps}
+		ALART02:${deps}
+		ALART03:${deps}
+		ALART11:${deps}
+		ALART05:${deps}
+		ALART06:${deps}
+		ALART07:${deps}
+		ALART08:${deps}
+	end
+	
+	#variables with the same name will overwrite any previously declared variable
+	${deps}:GRUNGE1 GRUNGE2 GRUNGE3 GRUNGE4 UFOBITS 
+	files:alship
+		ALSHIP00:${deps}
+		ALSHIP01:${deps}
+		ALSHIP02:${deps}
+		ALSHIP03:${deps}
+		ALSHIP04:${deps}
+		ALSHIP05:${deps}
+		ALSHIP06:${deps}
+		ALSHIP07:${deps}
+		ALSHIP08:${deps}
+		ALSHIP09:${deps}
+		ALSHIP10:${deps}
+		ALSHIP11:${deps}
+		ALSHIP12:${deps}
+		ALSHIP13:${deps}
+		ALSHIP14:${deps}
+		ALSHIP15:${deps}
+		ALSHIP16:${deps}
+		ALSHIP17:${deps}
+	end
+
+	${deps}:SAND ATLANTIS UFOBITS	
+	files:Atlantis
+		ATLAN01:${deps}
+		ATLAN02:${deps}
+		ATLAN03:${deps}
+		ATLAN06:${deps}
+		ATLAN07:${deps}
+		ATLAN11:${deps}
+		ATLAN09:${deps}
+		ATLAN12:${deps}
+		ATLAN04:${deps}
+		ATLAN05:${deps}
+		ATLAN10:${deps}
+		ATLAN08:${deps}
+		ATLAN00:${deps}
+	end
+
+	${deps}:SAND WEEDS CORAL ROCKS UFOBITS 
+	files:Coral
+		CORAL12:${deps}
+		CORAL09:${deps}
+		CORAL08:${deps}
+		CORAL01:${deps}
+		CORAL00:${deps}
+		CORAL03:${deps}
+		CORAL02:${deps}
+		CORAL05:${deps}
+		CORAL04:${deps}
+		CORAL07:${deps}
+		CORAL06:${deps}
+		CORAL10:${deps}
+		CORAL11:${deps}
+	end
+
+	${deps}:SAND ROCKS ASUNK UFOBITS 
+	files:Sunken Galleon
+		GAL01:${deps}
+		GAL02:${deps}
+		GAL03:${deps}
+		GAL04:${deps}
+		GAL05:${deps}
+		GAL06:${deps}
+		GAL07:${deps}
+		GAL08:${deps}
+		GAL09:${deps}
+		GAL11:${deps}
+		GAL10:${deps}
+		GAL13:${deps}
+		GAL12:${deps}
+		GAL15:${deps}
+		GAL14:${deps}
+		GAL16:${deps}
+	end
+
+	${deps}:SAND MU UFOBITS 
+	files:Mayan Temple
+		MU02:${deps}
+		MU03:${deps}
+		MU00:${deps}
+		MU01:${deps}
+		MU13:${deps}
+		MU12:${deps}
+		MU11:${deps}
+		MU10:${deps}
+		MU08:${deps}
+		MU14:${deps}
+		MU09:${deps}
+		MU06:${deps}
+		MU07:${deps}
+		MU04:${deps}
+		MU05:${deps}
+	end
+
+	${deps}:SAND PIPES UFOBITS 
+	files:Underwater Research Facility
+		PIPES10:${deps}
+		PIPES11:${deps}
+		PIPES00:${deps}
+		PIPES05:${deps}
+		PIPES04:${deps}
+		PIPES07:${deps}
+		PIPES06:${deps}
+		PIPES01:${deps}
+		PIPES03:${deps}
+		PIPES02:${deps}
+		PIPES08:${deps}
+		PIPES09:${deps}
+	end			
+
+	${deps}:SAND ROCKS WEEDS DEBRIS UFOBITS 
+	files:Seabed
+		SEABED00:${deps}
+		SEABED01:${deps}
+		SEABED12:${deps}
+		SEABED11:${deps}
+		SEABED10:${deps}
+		SEABED08:${deps}
+		SEABED09:${deps}
+		SEABED06:${deps}
+		SEABED07:${deps}
+		SEABED04:${deps}
+		SEABED05:${deps}
+		SEABED02:${deps}
+		SEABED03:${deps}
+	end
+
+	${deps}:SAND VOLC 
+	files:Volcano
+		VOLC04:${deps}
+		VOLC05:${deps}
+		VOLC06:${deps}
+		VOLC07:${deps}
+		VOLC00:${deps}
+		VOLC01:${deps}
+		VOLC02:${deps}
+		VOLC03:${deps}
+		VOLC10:${deps}
+		VOLC11:${deps}
+		VOLC08:${deps}
+		VOLC09:${deps}
+	end		   
+
+	${deps}:CRYPT1 CRYPT2 CRYPT3 CRYPT4 
+	files:T'leth Level 3
+		CRYPT06:${deps}
+		CRYPT07:${deps}
+		CRYPT04:${deps}
+		CRYPT05:${deps}
+		CRYPT02:${deps}
+		CRYPT03:${deps}
+		CRYPT01:${deps}
+		CRYPT08:${deps}
+		CRYPT09:${deps}
+	end			
+
+	${deps}:SAND UEXT2 UEXT3 ORGANIC1 ENTRY 
+	files:Alien Base Level 1
+		ENTRY02:${deps}
+		ENTRY03:${deps}
+		ENTRY01:${deps}
+		ENTRY00:${deps}
+		ENTRY08:${deps}
+		ENTRY06:${deps}
+		ENTRY07:${deps}
+		ENTRY04:${deps}
+		ENTRY05:${deps}
+	end			
+
+	${deps}:ORGANIC1 ORGANIC2 ORGANIC3 PSYNOM 
+	files:T'leth Level 2
+		LEVEL08:${deps}
+		LEVEL09:${deps}
+		LEVEL04:${deps}
+		LEVEL05:${deps}
+		LEVEL06:${deps}
+		LEVEL07:${deps}
+		LEVEL01:${deps}
+		LEVEL02:${deps}
+		LEVEL03:${deps}
+	end			
+
+	${deps}:SAND MSUNK1 MSUNK2 UFOBITS 
+	files:Sunken Cargo Ship
+		MSUNK10:${deps}
+		MSUNK13:${deps}
+		MSUNK12:${deps}
+		MSUNK04:${deps}
+		MSUNK05:${deps}
+		MSUNK06:${deps}
+		MSUNK07:${deps}
+		MSUNK00:${deps}
+		MSUNK01:${deps}
+		MSUNK02:${deps}
+		MSUNK03:${deps}
+		MSUNK08:${deps}
+		MSUNK09:${deps}
+		MSUNK11:${deps}
+	end
+
+	${deps}:ORGANIC1 ORGANIC2 ORGANIC3 PSYNOM 
+	files:Alien Base Level 2
+		A_BASE01:${deps}
+		A_BASE14:${deps}
+		A_BASE15:${deps}
+		A_BASE00:${deps}
+		A_BASE10:${deps}
+		A_BASE11:${deps}
+		A_BASE12:${deps}
+		A_BASE13:${deps}
+		A_BASE03:${deps}
+		A_BASE02:${deps}
+		A_BASE05:${deps}
+		A_BASE04:${deps}
+		A_BASE07:${deps}
+		A_BASE06:${deps}
+		A_BASE09:${deps}
+		A_BASE08:${deps}
+	end
+
+	${deps}:SEA CARGO1 CARGO2 XBITS CARGO3 
+	files:Cargo Ship Terror Site
+		CARGO02:${deps}
+		CARGO00:${deps}
+		CARGO01:${deps}
+	end
+
+	${deps}:GRUNGE1 GRUNGE2 GRUNGE3 GRUNGE4 GRUNGE5 UFOBITS 
+	files:Alien Artifact Site 2
+		GRUNGE16:${deps}
+		GRUNGE02:${deps}
+		GRUNGE03:${deps}
+		GRUNGE00:${deps}
+		GRUNGE01:${deps}
+		GRUNGE06:${deps}
+		GRUNGE07:${deps}
+		GRUNGE04:${deps}
+		GRUNGE05:${deps}
+		GRUNGE15:${deps}
+		GRUNGE14:${deps}
+		GRUNGE13:${deps}
+		GRUNGE12:${deps}
+		GRUNGE11:${deps}
+		GRUNGE10:${deps}
+		GRUNGE08:${deps}
+		GRUNGE09:${deps}
+	end			
+
+	${deps}:SEA ISLAND1 ISLAND2 ISLAND3 
+	files:Island Terror Site
+		ISLAND12:${deps}
+		ISLAND13:${deps}
+		ISLAND10:${deps}
+		ISLAND11:${deps}
+		ISLAND14:${deps}
+		ISLAND07:${deps}
+		ISLAND06:${deps}
+		ISLAND05:${deps}
+		ISLAND04:${deps}
+		ISLAND03:${deps}
+		ISLAND02:${deps}
+		ISLAND01:${deps}
+		ISLAND00:${deps}
+		ISLAND09:${deps}
+		ISLAND08:${deps}
+	end										
+
+	${deps}:SEA LINERA LINERB LINERC LINERD DECKC 
+	files:Cruise Ship 2 Terror Site
+		LINERB02:${deps}
+		LINERB03:${deps}
+	end
+
+	${deps}:DECKC LINERA LINERB LINERC LINERD DECKC 
+	files:Cruise Ship 1 Terror Site
+		LINERT02:${deps}
+		LINERT00:${deps}
+		LINERT01:${deps}
+	end			 
+
+	${deps}:SAND PLANE UFOBITS 
+	files:Sunken Plane
+		PLANE13:${deps}
+		PLANE20:${deps}
+		PLANE05:${deps}
+		PLANE08:${deps}
+		PLANE09:${deps}
+		PLANE19:${deps}
+		PLANE06:${deps}
+		PLANE04:${deps}
+		PLANE07:${deps}
+		PLANE00:${deps}
+		PLANE14:${deps}
+		PLANE17:${deps}
+		PLANE01:${deps}
+		PLANE02:${deps}
+		PLANE03:${deps}
+		PLANE16:${deps}
+		PLANE11:${deps}
+		PLANE10:${deps}
+		PLANE18:${deps}
+		PLANE12:${deps}
+		PLANE15:${deps}
+	end			
+
+	${deps}:SEA PORT01 PORT02 
+	files:Port Terror Site
+		PORT12:${deps}
+		PORT13:${deps}
+		PORT10:${deps}
+		PORT02:${deps}
+		PORT01:${deps}
+		PORT17:${deps}
+		PORT07:${deps}
+		PORT06:${deps}
+		PORT05:${deps}
+		PORT04:${deps}
+		PORT18:${deps}
+		PORT19:${deps}
+		PORT09:${deps}
+		PORT08:${deps}
+		PORT20:${deps}
+		PORT11:${deps}
+		PORT16:${deps}
+		PORT03:${deps}
+		PORT14:${deps}
+		PORT15:${deps}
+		PORT00:${deps}
+	end		   								   
+
+	${deps}:XBASES01 XBASES02 XBASES03 XBASES04 XBASES05 XBITS 
+	files:XCom Base
+		XBASES04:${deps}
+		XBASES05:${deps}
+		XBASES06:${deps}
+		XBASES07:${deps}
+		XBASES00:${deps}
+		XBASES01:${deps}
+		XBASES02:${deps}
+		XBASES03:${deps}
+		XBASES08:${deps}
+		XBASES09:${deps}
+		XBASES15:${deps}
+		XBASES14:${deps}
+		XBASES17:${deps}
+		XBASES16:${deps}
+		XBASES11:${deps}
+		XBASES10:${deps}
+		XBASES13:${deps}
+		XBASES20:${deps}
+		XBASES19:${deps}
+		XBASES18:${deps}
+		XBASES12:${deps}
+	end														   
+	palette:tftd 
+end		
+
+Tileset:TFTD - Ships
+	type:1
+	rootpath:${rootPath}
+	rmpPath:${rmpPath}
+	blankPath:${blankPath}
+	palette:tftd
+	
+	${deps}:UEXT2 UEXT3 UINT1 UINT2 UINT3 
+	files:Alien
+		UFO06:${deps}
+		UFO07:${deps}
+		UFO04:${deps}
+		UFO05:${deps}
+		UFO02:${deps}
+		UFO03:${deps}
+		UFO01:${deps}
+		UFO08:${deps}
+	end									   
+
+	files:XCom
+		LEVIATH:LEVIATH 
+		HAMMER:HAMMER 
+		TRITON:TRITON 
+	end	
+end
