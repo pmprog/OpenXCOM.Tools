@@ -49,7 +49,7 @@ namespace XCom
 				if(images[str]!=null)
 				{
 					ImageDescriptor id = images[str];
-					if(vars[id.BasePath]==null)
+					if(!vars.ContainsKey(id.BasePath))
 						vars[id.BasePath]=new Variable(id.BaseName+":",id.BasePath);
 					else
 						vars[id.BasePath].Inc(id.BaseName+":");

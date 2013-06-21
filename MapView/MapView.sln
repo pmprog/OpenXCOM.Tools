@@ -1,5 +1,5 @@
-Microsoft Visual Studio Solution File, Format Version 9.00
-# Visual Studio 2005
+Microsoft Visual Studio Solution File, Format Version 10.00
+# Visual Studio 2008
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MapView", "MapView.csproj", "{AAB9EA5A-403E-488D-894F-6014B85D09CC}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "XCom", "..\XCom\XCom.csproj", "{66DC3C20-8041-48DD-962B-DEA050F89179}"

@@ -168,8 +168,29 @@ namespace MapView.RmpViewForm
 
 				if (currEntry == null && e.MouseEventArgs.Button == MouseButtons.Right)
 				{
-					if (map is XCMapFile)
-						currEntry = ((XCMapFile)map).AddRmp(e.ClickLocation);
+          if (map is XCMapFile)
+          {
+            RmpEntry prevEntry = (((XCMapFile)map).Rmp.Length > 0 ? ((XCMapFile)map).Rmp[((XCMapFile)map).Rmp.Length - 1] : null);
+            
+            currEntry = ((XCMapFile)map).AddRmp(e.ClickLocation);
+            if (AutoconnectNodes.Checked)
+            {
+              currEntry[0].Index = (byte)(((XCMapFile)map).Rmp.Length - 2);
+              if (prevEntry != null)
+              {
+                currEntry[0].Distance = calcLinkDistance(currEntry, prevEntry, txtDist1);
+                for (int pI = 0; pI < prevEntry.NumLinks; pI++)
+                {
+                  if (prevEntry[pI].Index == 0xFF)
+                  {
+                    prevEntry[pI].Index = (byte)(((XCMapFile)map).Rmp.Length - 1);
+                    prevEntry[pI].Distance = calcLinkDistance(prevEntry, currEntry, null);
+                    break;
+                  }
+                }
+              }
+            }
+          }
 				}
 			}
 			catch { return; }
@@ -392,9 +413,14 @@ namespace MapView.RmpViewForm
 			}
 		}
 
-		private void calcLinkDistance(RmpEntry from, RmpEntry to, TextBox result)
+		private byte calcLinkDistance(RmpEntry from, RmpEntry to, TextBox result)
 		{
-			result.Text = ((int)Math.Sqrt(Math.Pow(from.Row - to.Row, 2) + Math.Pow(from.Col - to.Col, 2) + Math.Pow(from.Height - to.Height, 2))).ToString();
+      int dist = ((int)Math.Sqrt(Math.Pow(from.Row - to.Row, 2) + Math.Pow(from.Col - to.Col, 2) + Math.Pow(from.Height - to.Height, 2)));
+      if (result != null)
+      {
+        result.Text = dist.ToString();
+      }
+      return (byte)dist;
 		}
 
 		private void cbLink1_SelectedIndexChanged(object sender, System.EventArgs e)

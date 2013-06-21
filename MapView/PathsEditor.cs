@@ -50,11 +50,8 @@ namespace MapView
 		private System.Windows.Forms.Button button2;
 		private System.Windows.Forms.Button btnDown;
 		private System.Windows.Forms.Button btnUp;
-		private System.Windows.Forms.Button btnClearRegistry;
-		/// <summary>
-		/// Required designer variable.
-		/// </summary>
-		private System.ComponentModel.Container components = null;
+    private System.Windows.Forms.Button btnClearRegistry;
+    private IContainer components;
 		private System.Windows.Forms.TextBox txtPalettes;
 		private System.Windows.Forms.Label label10;
 		private System.Windows.Forms.Button btnFindMap;
@@ -200,689 +197,679 @@ namespace MapView
 		/// </summary>
 		private void InitializeComponent()
 		{
-			this.mainMenu = new System.Windows.Forms.MainMenu();
-			this.miFile = new System.Windows.Forms.MenuItem();
-			this.menuItem1 = new System.Windows.Forms.MenuItem();
-			this.closeItem = new System.Windows.Forms.MenuItem();
-			this.tabs = new System.Windows.Forms.TabControl();
-			this.tabPaths = new System.Windows.Forms.TabPage();
-			this.btnSave = new System.Windows.Forms.Button();
-			this.runInstaller = new System.Windows.Forms.Button();
-			this.btnFindImage = new System.Windows.Forms.Button();
-			this.btnFindMap = new System.Windows.Forms.Button();
-			this.txtPalettes = new System.Windows.Forms.TextBox();
-			this.label10 = new System.Windows.Forms.Label();
-			this.btnClearRegistry = new System.Windows.Forms.Button();
-			this.lblReminder = new System.Windows.Forms.Label();
-			this.txtCursor = new System.Windows.Forms.TextBox();
-			this.txtImages = new System.Windows.Forms.TextBox();
-			this.txtMap = new System.Windows.Forms.TextBox();
-			this.label3 = new System.Windows.Forms.Label();
-			this.label2 = new System.Windows.Forms.Label();
-			this.label1 = new System.Windows.Forms.Label();
-			this.tabMaps = new System.Windows.Forms.TabPage();
-			this.grpMap = new System.Windows.Forms.GroupBox();
-			this.btnUp = new System.Windows.Forms.Button();
-			this.btnDown = new System.Windows.Forms.Button();
-			this.button2 = new System.Windows.Forms.Button();
-			this.btnMoveLeft = new System.Windows.Forms.Button();
-			this.listAllImages = new System.Windows.Forms.ListBox();
-			this.label9 = new System.Windows.Forms.Label();
-			this.listMapImages = new System.Windows.Forms.ListBox();
-			this.label8 = new System.Windows.Forms.Label();
-			this.grpMapGroup = new System.Windows.Forms.GroupBox();
-			this.cbPalette = new System.Windows.Forms.ComboBox();
-			this.label7 = new System.Windows.Forms.Label();
-			this.label6 = new System.Windows.Forms.Label();
-			this.label5 = new System.Windows.Forms.Label();
-			this.txtRmp = new System.Windows.Forms.TextBox();
-			this.txtRoot = new System.Windows.Forms.TextBox();
-			this.treeMaps = new System.Windows.Forms.TreeView();
-			this.cmTree = new System.Windows.Forms.ContextMenu();
-			this.newGroup = new System.Windows.Forms.MenuItem();
-			this.delGroup = new System.Windows.Forms.MenuItem();
-			this.addSub = new System.Windows.Forms.MenuItem();
-			this.delSub = new System.Windows.Forms.MenuItem();
-			this.addMap = new System.Windows.Forms.MenuItem();
-			this.addNewMap = new System.Windows.Forms.MenuItem();
-			this.addExistingMap = new System.Windows.Forms.MenuItem();
-			this.delMap = new System.Windows.Forms.MenuItem();
-			this.btnSaveMapEdit = new System.Windows.Forms.Button();
-			this.btnEditTree = new System.Windows.Forms.Button();
-			this.tabImages = new System.Windows.Forms.TabPage();
-			this.lblImage2 = new System.Windows.Forms.Label();
-			this.txtImage2 = new System.Windows.Forms.TextBox();
-			this.btnSaveImages = new System.Windows.Forms.Button();
-			this.label4 = new System.Windows.Forms.Label();
-			this.txtImagePath = new System.Windows.Forms.TextBox();
-			this.lstImages = new System.Windows.Forms.ListBox();
-			this.imagesCM = new System.Windows.Forms.ContextMenu();
-			this.addImageset = new System.Windows.Forms.MenuItem();
-			this.delImageset = new System.Windows.Forms.MenuItem();
-			this.openFile = new System.Windows.Forms.OpenFileDialog();
-			this.label11 = new System.Windows.Forms.Label();
-			this.txtBlank = new System.Windows.Forms.TextBox();
-			this.btnCopy = new System.Windows.Forms.Button();
-			this.btnPaste = new System.Windows.Forms.Button();
-			this.tabs.SuspendLayout();
-			this.tabPaths.SuspendLayout();
-			this.tabMaps.SuspendLayout();
-			this.grpMap.SuspendLayout();
-			this.grpMapGroup.SuspendLayout();
-			this.tabImages.SuspendLayout();
-			this.SuspendLayout();
-			// 
-			// mainMenu
-			// 
-			this.mainMenu.MenuItems.AddRange(new System.Windows.Forms.MenuItem[] {
-																					 this.miFile});
-			// 
-			// miFile
-			// 
-			this.miFile.Index = 0;
-			this.miFile.MenuItems.AddRange(new System.Windows.Forms.MenuItem[] {
-																				   this.menuItem1,
-																				   this.closeItem});
-			this.miFile.Text = "File";
-			// 
-			// menuItem1
-			// 
-			this.menuItem1.Index = 0;
-			this.menuItem1.Text = "Import map settings";
-			// 
-			// closeItem
-			// 
-			this.closeItem.Index = 1;
-			this.closeItem.Text = "Close";
-			this.closeItem.Click += new System.EventHandler(this.closeItem_Click);
-			// 
-			// tabs
-			// 
-			this.tabs.Controls.AddRange(new System.Windows.Forms.Control[] {
-																			   this.tabPaths,
-																			   this.tabMaps,
-																			   this.tabImages});
-			this.tabs.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.tabs.Name = "tabs";
-			this.tabs.SelectedIndex = 0;
-			this.tabs.Size = new System.Drawing.Size(432, 427);
-			this.tabs.TabIndex = 0;
-			// 
-			// tabPaths
-			// 
-			this.tabPaths.Controls.AddRange(new System.Windows.Forms.Control[] {
-																				   this.btnSave,
-																				   this.runInstaller,
-																				   this.btnFindImage,
-																				   this.btnFindMap,
-																				   this.txtPalettes,
-																				   this.label10,
-																				   this.btnClearRegistry,
-																				   this.lblReminder,
-																				   this.txtCursor,
-																				   this.txtImages,
-																				   this.txtMap,
-																				   this.label3,
-																				   this.label2,
-																				   this.label1});
-			this.tabPaths.Location = new System.Drawing.Point(4, 22);
-			this.tabPaths.Name = "tabPaths";
-			this.tabPaths.Size = new System.Drawing.Size(424, 329);
-			this.tabPaths.TabIndex = 0;
-			this.tabPaths.Text = "Paths";
-			// 
-			// btnSave
-			// 
-			this.btnSave.Location = new System.Drawing.Point(8, 192);
-			this.btnSave.Name = "btnSave";
-			this.btnSave.Size = new System.Drawing.Size(80, 23);
-			this.btnSave.TabIndex = 14;
-			this.btnSave.Text = "Save paths";
-			this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
-			// 
-			// runInstaller
-			// 
-			this.runInstaller.Location = new System.Drawing.Point(144, 296);
-			this.runInstaller.Name = "runInstaller";
-			this.runInstaller.Size = new System.Drawing.Size(88, 23);
-			this.runInstaller.TabIndex = 13;
-			this.runInstaller.Text = "Run installer";
-			this.runInstaller.Click += new System.EventHandler(this.runInstaller_Click);
-			// 
-			// btnFindImage
-			// 
-			this.btnFindImage.Anchor = (System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right);
-			this.btnFindImage.Location = new System.Drawing.Point(376, 32);
-			this.btnFindImage.Name = "btnFindImage";
-			this.btnFindImage.Size = new System.Drawing.Size(48, 23);
-			this.btnFindImage.TabIndex = 11;
-			this.btnFindImage.Text = "Find";
-			this.btnFindImage.Click += new System.EventHandler(this.btnFindImage_Click);
-			// 
-			// btnFindMap
-			// 
-			this.btnFindMap.Anchor = (System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right);
-			this.btnFindMap.Location = new System.Drawing.Point(376, 8);
-			this.btnFindMap.Name = "btnFindMap";
-			this.btnFindMap.Size = new System.Drawing.Size(48, 23);
-			this.btnFindMap.TabIndex = 10;
-			this.btnFindMap.Text = "Find";
-			this.btnFindMap.Click += new System.EventHandler(this.btnFindMap_Click);
-			// 
-			// txtPalettes
-			// 
-			this.txtPalettes.Anchor = ((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-				| System.Windows.Forms.AnchorStyles.Right);
-			this.txtPalettes.Location = new System.Drawing.Point(64, 80);
-			this.txtPalettes.Name = "txtPalettes";
-			this.txtPalettes.Size = new System.Drawing.Size(352, 20);
-			this.txtPalettes.TabIndex = 9;
-			this.txtPalettes.Text = "";
-			this.txtPalettes.Visible = false;
-			// 
-			// label10
-			// 
-			this.label10.Location = new System.Drawing.Point(0, 80);
-			this.label10.Name = "label10";
-			this.label10.Size = new System.Drawing.Size(64, 20);
-			this.label10.TabIndex = 8;
-			this.label10.Text = "Palettes:";
-			this.label10.Visible = false;
-			// 
-			// btnClearRegistry
-			// 
-			this.btnClearRegistry.Location = new System.Drawing.Point(8, 296);
-			this.btnClearRegistry.Name = "btnClearRegistry";
-			this.btnClearRegistry.Size = new System.Drawing.Size(128, 23);
-			this.btnClearRegistry.TabIndex = 7;
-			this.btnClearRegistry.Text = "Clear Registry Settings";
-			this.btnClearRegistry.Click += new System.EventHandler(this.btnClearRegistry_Click);
-			// 
-			// lblReminder
-			// 
-			this.lblReminder.Location = new System.Drawing.Point(8, 160);
-			this.lblReminder.Name = "lblReminder";
-			this.lblReminder.Size = new System.Drawing.Size(264, 32);
-			this.lblReminder.TabIndex = 6;
-			this.lblReminder.Text = "None of your changes will be made until you click the save button below";
-			// 
-			// txtCursor
-			// 
-			this.txtCursor.Anchor = ((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-				| System.Windows.Forms.AnchorStyles.Right);
-			this.txtCursor.Location = new System.Drawing.Point(64, 56);
-			this.txtCursor.Name = "txtCursor";
-			this.txtCursor.Size = new System.Drawing.Size(352, 20);
-			this.txtCursor.TabIndex = 5;
-			this.txtCursor.Text = "";
-			// 
-			// txtImages
-			// 
-			this.txtImages.Anchor = ((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-				| System.Windows.Forms.AnchorStyles.Right);
-			this.txtImages.Location = new System.Drawing.Point(64, 32);
-			this.txtImages.Name = "txtImages";
-			this.txtImages.Size = new System.Drawing.Size(312, 20);
-			this.txtImages.TabIndex = 4;
-			this.txtImages.Text = "";
-			// 
-			// txtMap
-			// 
-			this.txtMap.Anchor = ((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-				| System.Windows.Forms.AnchorStyles.Right);
-			this.txtMap.Location = new System.Drawing.Point(64, 8);
-			this.txtMap.Name = "txtMap";
-			this.txtMap.Size = new System.Drawing.Size(312, 20);
-			this.txtMap.TabIndex = 3;
-			this.txtMap.Text = "";
-			// 
-			// label3
-			// 
-			this.label3.Location = new System.Drawing.Point(0, 56);
-			this.label3.Name = "label3";
-			this.label3.Size = new System.Drawing.Size(64, 20);
-			this.label3.TabIndex = 2;
-			this.label3.Text = "Cursor:";
-			// 
-			// label2
-			// 
-			this.label2.Location = new System.Drawing.Point(0, 32);
-			this.label2.Name = "label2";
-			this.label2.Size = new System.Drawing.Size(64, 20);
-			this.label2.TabIndex = 1;
-			this.label2.Text = "Images:";
-			// 
-			// label1
-			// 
-			this.label1.Location = new System.Drawing.Point(0, 8);
-			this.label1.Name = "label1";
-			this.label1.Size = new System.Drawing.Size(64, 20);
-			this.label1.TabIndex = 0;
-			this.label1.Text = "Map Data:";
-			// 
-			// tabMaps
-			// 
-			this.tabMaps.Controls.AddRange(new System.Windows.Forms.Control[] {
-																				  this.grpMap,
-																				  this.grpMapGroup,
-																				  this.treeMaps,
-																				  this.btnSaveMapEdit,
-																				  this.btnEditTree});
-			this.tabMaps.Location = new System.Drawing.Point(4, 22);
-			this.tabMaps.Name = "tabMaps";
-			this.tabMaps.Size = new System.Drawing.Size(424, 401);
-			this.tabMaps.TabIndex = 1;
-			this.tabMaps.Text = "Map Files";
-			// 
-			// grpMap
-			// 
-			this.grpMap.Anchor = ((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-				| System.Windows.Forms.AnchorStyles.Left);
-			this.grpMap.Controls.AddRange(new System.Windows.Forms.Control[] {
-																				 this.btnPaste,
-																				 this.btnCopy,
-																				 this.btnUp,
-																				 this.btnDown,
-																				 this.button2,
-																				 this.btnMoveLeft,
-																				 this.listAllImages,
-																				 this.label9,
-																				 this.listMapImages,
-																				 this.label8});
-			this.grpMap.Enabled = false;
-			this.grpMap.Location = new System.Drawing.Point(152, 184);
-			this.grpMap.Name = "grpMap";
-			this.grpMap.Size = new System.Drawing.Size(272, 215);
-			this.grpMap.TabIndex = 2;
-			this.grpMap.TabStop = false;
-			this.grpMap.Text = "Map File";
-			// 
-			// btnUp
-			// 
-			this.btnUp.Location = new System.Drawing.Point(104, 32);
-			this.btnUp.Name = "btnUp";
-			this.btnUp.Size = new System.Drawing.Size(56, 23);
-			this.btnUp.TabIndex = 7;
-			this.btnUp.Text = "Up";
-			this.btnUp.Click += new System.EventHandler(this.btnUp_Click);
-			// 
-			// btnDown
-			// 
-			this.btnDown.Location = new System.Drawing.Point(104, 56);
-			this.btnDown.Name = "btnDown";
-			this.btnDown.Size = new System.Drawing.Size(56, 23);
-			this.btnDown.TabIndex = 6;
-			this.btnDown.Text = "Down";
-			this.btnDown.Click += new System.EventHandler(this.btnDown_Click);
-			// 
-			// button2
-			// 
-			this.button2.Location = new System.Drawing.Point(104, 112);
-			this.button2.Name = "button2";
-			this.button2.Size = new System.Drawing.Size(56, 23);
-			this.button2.TabIndex = 5;
-			this.button2.Text = "->";
-			this.button2.Click += new System.EventHandler(this.button2_Click);
-			// 
-			// btnMoveLeft
-			// 
-			this.btnMoveLeft.Location = new System.Drawing.Point(104, 88);
-			this.btnMoveLeft.Name = "btnMoveLeft";
-			this.btnMoveLeft.Size = new System.Drawing.Size(56, 23);
-			this.btnMoveLeft.TabIndex = 4;
-			this.btnMoveLeft.Text = "<-";
-			this.btnMoveLeft.Click += new System.EventHandler(this.btnMoveLeft_Click);
-			// 
-			// listAllImages
-			// 
-			this.listAllImages.Anchor = ((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-				| System.Windows.Forms.AnchorStyles.Left);
-			this.listAllImages.Location = new System.Drawing.Point(168, 32);
-			this.listAllImages.Name = "listAllImages";
-			this.listAllImages.SelectionMode = System.Windows.Forms.SelectionMode.MultiExtended;
-			this.listAllImages.Size = new System.Drawing.Size(96, 173);
-			this.listAllImages.TabIndex = 3;
-			// 
-			// label9
-			// 
-			this.label9.Location = new System.Drawing.Point(168, 16);
-			this.label9.Name = "label9";
-			this.label9.Size = new System.Drawing.Size(96, 16);
-			this.label9.TabIndex = 2;
-			this.label9.Text = "Available Images";
-			// 
-			// listMapImages
-			// 
-			this.listMapImages.Anchor = ((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-				| System.Windows.Forms.AnchorStyles.Left);
-			this.listMapImages.Location = new System.Drawing.Point(8, 32);
-			this.listMapImages.Name = "listMapImages";
-			this.listMapImages.Size = new System.Drawing.Size(88, 173);
-			this.listMapImages.TabIndex = 1;
-			// 
-			// label8
-			// 
-			this.label8.Location = new System.Drawing.Point(8, 16);
-			this.label8.Name = "label8";
-			this.label8.Size = new System.Drawing.Size(100, 16);
-			this.label8.TabIndex = 0;
-			this.label8.Text = "Image List";
-			// 
-			// grpMapGroup
-			// 
-			this.grpMapGroup.Controls.AddRange(new System.Windows.Forms.Control[] {
-																					  this.label11,
-																					  this.txtBlank,
-																					  this.cbPalette,
-																					  this.label7,
-																					  this.label6,
-																					  this.label5,
-																					  this.txtRmp,
-																					  this.txtRoot});
-			this.grpMapGroup.Enabled = false;
-			this.grpMapGroup.Location = new System.Drawing.Point(152, 0);
-			this.grpMapGroup.Name = "grpMapGroup";
-			this.grpMapGroup.Size = new System.Drawing.Size(272, 184);
-			this.grpMapGroup.TabIndex = 1;
-			this.grpMapGroup.TabStop = false;
-			this.grpMapGroup.Text = "Map Group";
-			// 
-			// cbPalette
-			// 
-			this.cbPalette.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-			this.cbPalette.Location = new System.Drawing.Point(8, 152);
-			this.cbPalette.Name = "cbPalette";
-			this.cbPalette.Size = new System.Drawing.Size(104, 21);
-			this.cbPalette.TabIndex = 5;
-			this.cbPalette.SelectedIndexChanged += new System.EventHandler(this.cbPalette_SelectedIndexChanged);
-			// 
-			// label7
-			// 
-			this.label7.Location = new System.Drawing.Point(8, 136);
-			this.label7.Name = "label7";
-			this.label7.Size = new System.Drawing.Size(100, 16);
-			this.label7.TabIndex = 4;
-			this.label7.Text = "Palette";
-			// 
-			// label6
-			// 
-			this.label6.Location = new System.Drawing.Point(8, 56);
-			this.label6.Name = "label6";
-			this.label6.Size = new System.Drawing.Size(100, 16);
-			this.label6.TabIndex = 3;
-			this.label6.Text = "Rmp Path";
-			// 
-			// label5
-			// 
-			this.label5.Location = new System.Drawing.Point(8, 16);
-			this.label5.Name = "label5";
-			this.label5.Size = new System.Drawing.Size(100, 16);
-			this.label5.TabIndex = 2;
-			this.label5.Text = "Root Path";
-			// 
-			// txtRmp
-			// 
-			this.txtRmp.Anchor = ((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-				| System.Windows.Forms.AnchorStyles.Right);
-			this.txtRmp.Location = new System.Drawing.Point(8, 72);
-			this.txtRmp.Name = "txtRmp";
-			this.txtRmp.Size = new System.Drawing.Size(256, 20);
-			this.txtRmp.TabIndex = 1;
-			this.txtRmp.Text = "";
-			this.txtRmp.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtRmp_KeyPress);
-			this.txtRmp.Leave += new System.EventHandler(this.txtRmp_Leave);
-			// 
-			// txtRoot
-			// 
-			this.txtRoot.Anchor = ((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-				| System.Windows.Forms.AnchorStyles.Right);
-			this.txtRoot.Location = new System.Drawing.Point(8, 32);
-			this.txtRoot.Name = "txtRoot";
-			this.txtRoot.Size = new System.Drawing.Size(256, 20);
-			this.txtRoot.TabIndex = 0;
-			this.txtRoot.Text = "";
-			this.txtRoot.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtRoot_KeyPress);
-			this.txtRoot.Leave += new System.EventHandler(this.txtRoot_Leave);
-			// 
-			// treeMaps
-			// 
-			this.treeMaps.Anchor = ((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-				| System.Windows.Forms.AnchorStyles.Left);
-			this.treeMaps.ContextMenu = this.cmTree;
-			this.treeMaps.ImageIndex = -1;
-			this.treeMaps.Location = new System.Drawing.Point(0, 24);
-			this.treeMaps.Name = "treeMaps";
-			this.treeMaps.SelectedImageIndex = -1;
-			this.treeMaps.Size = new System.Drawing.Size(152, 376);
-			this.treeMaps.TabIndex = 0;
-			this.treeMaps.AfterSelect += new System.Windows.Forms.TreeViewEventHandler(this.treeMaps_AfterSelect);
-			// 
-			// cmTree
-			// 
-			this.cmTree.MenuItems.AddRange(new System.Windows.Forms.MenuItem[] {
-																				   this.newGroup,
-																				   this.delGroup,
-																				   this.addSub,
-																				   this.delSub,
-																				   this.addMap,
-																				   this.delMap});
-			// 
-			// newGroup
-			// 
-			this.newGroup.Index = 0;
-			this.newGroup.Text = "New group";
-			this.newGroup.Click += new System.EventHandler(this.newGroup_Click);
-			// 
-			// delGroup
-			// 
-			this.delGroup.Index = 1;
-			this.delGroup.Text = "Delete group";
-			this.delGroup.Click += new System.EventHandler(this.delGroup_Click);
-			// 
-			// addSub
-			// 
-			this.addSub.Index = 2;
-			this.addSub.Text = "Add sub-group";
-			this.addSub.Click += new System.EventHandler(this.addSub_Click);
-			// 
-			// delSub
-			// 
-			this.delSub.Index = 3;
-			this.delSub.Text = "Delete sub-group";
-			this.delSub.Click += new System.EventHandler(this.delSub_Click);
-			// 
-			// addMap
-			// 
-			this.addMap.Index = 4;
-			this.addMap.MenuItems.AddRange(new System.Windows.Forms.MenuItem[] {
-																				   this.addNewMap,
-																				   this.addExistingMap});
-			this.addMap.Text = "Add map";
-			// 
-			// addNewMap
-			// 
-			this.addNewMap.Index = 0;
-			this.addNewMap.Text = "New Map";
-			this.addNewMap.Click += new System.EventHandler(this.addNewMap_Click);
-			// 
-			// addExistingMap
-			// 
-			this.addExistingMap.Index = 1;
-			this.addExistingMap.Text = "Existing Map";
-			this.addExistingMap.Click += new System.EventHandler(this.addExistingMap_Click);
-			// 
-			// delMap
-			// 
-			this.delMap.Index = 5;
-			this.delMap.Text = "Delete map";
-			this.delMap.Click += new System.EventHandler(this.delMap_Click);
-			// 
-			// btnSaveMapEdit
-			// 
-			this.btnSaveMapEdit.Name = "btnSaveMapEdit";
-			this.btnSaveMapEdit.Size = new System.Drawing.Size(48, 23);
-			this.btnSaveMapEdit.TabIndex = 8;
-			this.btnSaveMapEdit.Text = "Save";
-			this.btnSaveMapEdit.Click += new System.EventHandler(this.btnSaveMapEdit_Click);
-			// 
-			// btnEditTree
-			// 
-			this.btnEditTree.Location = new System.Drawing.Point(48, 0);
-			this.btnEditTree.Name = "btnEditTree";
-			this.btnEditTree.Size = new System.Drawing.Size(64, 23);
-			this.btnEditTree.TabIndex = 6;
-			this.btnEditTree.Text = "Edit Tree";
-			this.btnEditTree.Click += new System.EventHandler(this.moveMaps_Click);
-			// 
-			// tabImages
-			// 
-			this.tabImages.Controls.AddRange(new System.Windows.Forms.Control[] {
-																					this.lblImage2,
-																					this.txtImage2,
-																					this.btnSaveImages,
-																					this.label4,
-																					this.txtImagePath,
-																					this.lstImages});
-			this.tabImages.Location = new System.Drawing.Point(4, 22);
-			this.tabImages.Name = "tabImages";
-			this.tabImages.Size = new System.Drawing.Size(424, 329);
-			this.tabImages.TabIndex = 2;
-			this.tabImages.Text = "Image Files";
-			// 
-			// lblImage2
-			// 
-			this.lblImage2.Location = new System.Drawing.Point(120, 208);
-			this.lblImage2.Name = "lblImage2";
-			this.lblImage2.Size = new System.Drawing.Size(100, 16);
-			this.lblImage2.TabIndex = 14;
-			this.lblImage2.Text = "Image.dat path";
-			// 
-			// txtImage2
-			// 
-			this.txtImage2.Anchor = ((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-				| System.Windows.Forms.AnchorStyles.Right);
-			this.txtImage2.Location = new System.Drawing.Point(120, 224);
-			this.txtImage2.Name = "txtImage2";
-			this.txtImage2.ReadOnly = true;
-			this.txtImage2.Size = new System.Drawing.Size(272, 20);
-			this.txtImage2.TabIndex = 12;
-			this.txtImage2.Text = "";
-			// 
-			// btnSaveImages
-			// 
-			this.btnSaveImages.Location = new System.Drawing.Point(120, 248);
-			this.btnSaveImages.Name = "btnSaveImages";
-			this.btnSaveImages.TabIndex = 3;
-			this.btnSaveImages.Text = "Save";
-			this.btnSaveImages.Click += new System.EventHandler(this.btnSaveImages_Click);
-			// 
-			// label4
-			// 
-			this.label4.Location = new System.Drawing.Point(120, 96);
-			this.label4.Name = "label4";
-			this.label4.Size = new System.Drawing.Size(56, 16);
-			this.label4.TabIndex = 2;
-			this.label4.Text = "Path";
-			// 
-			// txtImagePath
-			// 
-			this.txtImagePath.Anchor = ((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-				| System.Windows.Forms.AnchorStyles.Right);
-			this.txtImagePath.Location = new System.Drawing.Point(120, 112);
-			this.txtImagePath.Name = "txtImagePath";
-			this.txtImagePath.ReadOnly = true;
-			this.txtImagePath.Size = new System.Drawing.Size(296, 20);
-			this.txtImagePath.TabIndex = 1;
-			this.txtImagePath.Text = "";
-			this.txtImagePath.TextChanged += new System.EventHandler(this.txtImagePath_TextChanged);
-			// 
-			// lstImages
-			// 
-			this.lstImages.ContextMenu = this.imagesCM;
-			this.lstImages.Dock = System.Windows.Forms.DockStyle.Left;
-			this.lstImages.Name = "lstImages";
-			this.lstImages.Size = new System.Drawing.Size(120, 329);
-			this.lstImages.TabIndex = 0;
-			this.lstImages.SelectedIndexChanged += new System.EventHandler(this.lstImages_SelectedIndexChanged);
-			// 
-			// imagesCM
-			// 
-			this.imagesCM.MenuItems.AddRange(new System.Windows.Forms.MenuItem[] {
-																					 this.addImageset,
-																					 this.delImageset});
-			// 
-			// addImageset
-			// 
-			this.addImageset.Index = 0;
-			this.addImageset.Text = "Add";
-			this.addImageset.Click += new System.EventHandler(this.addImageset_Click);
-			// 
-			// delImageset
-			// 
-			this.delImageset.Index = 1;
-			this.delImageset.Text = "Remove";
-			this.delImageset.Click += new System.EventHandler(this.delImageset_Click);
-			// 
-			// openFile
-			// 
-			this.openFile.Filter = "map files|*.map|dat files|*.dat|Pck files|*.pck|All files|*.*";
-			// 
-			// label11
-			// 
-			this.label11.Location = new System.Drawing.Point(8, 96);
-			this.label11.Name = "label11";
-			this.label11.Size = new System.Drawing.Size(100, 16);
-			this.label11.TabIndex = 7;
-			this.label11.Text = "Blanks Path";
-			// 
-			// txtBlank
-			// 
-			this.txtBlank.Anchor = ((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-				| System.Windows.Forms.AnchorStyles.Right);
-			this.txtBlank.Location = new System.Drawing.Point(8, 112);
-			this.txtBlank.Name = "txtBlank";
-			this.txtBlank.Size = new System.Drawing.Size(256, 20);
-			this.txtBlank.TabIndex = 6;
-			this.txtBlank.Text = "";
-			// 
-			// btnCopy
-			// 
-			this.btnCopy.Location = new System.Drawing.Point(104, 152);
-			this.btnCopy.Name = "btnCopy";
-			this.btnCopy.Size = new System.Drawing.Size(56, 23);
-			this.btnCopy.TabIndex = 8;
-			this.btnCopy.Text = "Copy";
-			this.btnCopy.Click += new System.EventHandler(this.btnCopy_Click);
-			// 
-			// btnPaste
-			// 
-			this.btnPaste.Location = new System.Drawing.Point(104, 176);
-			this.btnPaste.Name = "btnPaste";
-			this.btnPaste.Size = new System.Drawing.Size(56, 23);
-			this.btnPaste.TabIndex = 9;
-			this.btnPaste.Text = "Paste";
-			this.btnPaste.Click += new System.EventHandler(this.btnPaste_Click);
-			// 
-			// PathsEditor
-			// 
-			this.AutoScaleBaseSize = new System.Drawing.Size(5, 13);
-			this.ClientSize = new System.Drawing.Size(432, 427);
-			this.Controls.AddRange(new System.Windows.Forms.Control[] {
-																		  this.tabs});
-			this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
-			this.MaximizeBox = false;
-			this.Menu = this.mainMenu;
-			this.MinimizeBox = false;
-			this.Name = "PathsEditor";
-			this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-			this.Text = "PathsEditor";
-			this.tabs.ResumeLayout(false);
-			this.tabPaths.ResumeLayout(false);
-			this.tabMaps.ResumeLayout(false);
-			this.grpMap.ResumeLayout(false);
-			this.grpMapGroup.ResumeLayout(false);
-			this.tabImages.ResumeLayout(false);
-			this.ResumeLayout(false);
+      this.components = new System.ComponentModel.Container();
+      this.mainMenu = new System.Windows.Forms.MainMenu(this.components);
+      this.miFile = new System.Windows.Forms.MenuItem();
+      this.menuItem1 = new System.Windows.Forms.MenuItem();
+      this.closeItem = new System.Windows.Forms.MenuItem();
+      this.tabs = new System.Windows.Forms.TabControl();
+      this.tabPaths = new System.Windows.Forms.TabPage();
+      this.btnSave = new System.Windows.Forms.Button();
+      this.runInstaller = new System.Windows.Forms.Button();
+      this.btnFindImage = new System.Windows.Forms.Button();
+      this.btnFindMap = new System.Windows.Forms.Button();
+      this.txtPalettes = new System.Windows.Forms.TextBox();
+      this.label10 = new System.Windows.Forms.Label();
+      this.btnClearRegistry = new System.Windows.Forms.Button();
+      this.lblReminder = new System.Windows.Forms.Label();
+      this.txtCursor = new System.Windows.Forms.TextBox();
+      this.txtImages = new System.Windows.Forms.TextBox();
+      this.txtMap = new System.Windows.Forms.TextBox();
+      this.label3 = new System.Windows.Forms.Label();
+      this.label2 = new System.Windows.Forms.Label();
+      this.label1 = new System.Windows.Forms.Label();
+      this.tabMaps = new System.Windows.Forms.TabPage();
+      this.grpMap = new System.Windows.Forms.GroupBox();
+      this.btnPaste = new System.Windows.Forms.Button();
+      this.btnCopy = new System.Windows.Forms.Button();
+      this.btnUp = new System.Windows.Forms.Button();
+      this.btnDown = new System.Windows.Forms.Button();
+      this.button2 = new System.Windows.Forms.Button();
+      this.btnMoveLeft = new System.Windows.Forms.Button();
+      this.listAllImages = new System.Windows.Forms.ListBox();
+      this.label9 = new System.Windows.Forms.Label();
+      this.listMapImages = new System.Windows.Forms.ListBox();
+      this.label8 = new System.Windows.Forms.Label();
+      this.grpMapGroup = new System.Windows.Forms.GroupBox();
+      this.label11 = new System.Windows.Forms.Label();
+      this.txtBlank = new System.Windows.Forms.TextBox();
+      this.cbPalette = new System.Windows.Forms.ComboBox();
+      this.label7 = new System.Windows.Forms.Label();
+      this.label6 = new System.Windows.Forms.Label();
+      this.label5 = new System.Windows.Forms.Label();
+      this.txtRmp = new System.Windows.Forms.TextBox();
+      this.txtRoot = new System.Windows.Forms.TextBox();
+      this.treeMaps = new System.Windows.Forms.TreeView();
+      this.cmTree = new System.Windows.Forms.ContextMenu();
+      this.newGroup = new System.Windows.Forms.MenuItem();
+      this.delGroup = new System.Windows.Forms.MenuItem();
+      this.addSub = new System.Windows.Forms.MenuItem();
+      this.delSub = new System.Windows.Forms.MenuItem();
+      this.addMap = new System.Windows.Forms.MenuItem();
+      this.addNewMap = new System.Windows.Forms.MenuItem();
+      this.addExistingMap = new System.Windows.Forms.MenuItem();
+      this.delMap = new System.Windows.Forms.MenuItem();
+      this.btnSaveMapEdit = new System.Windows.Forms.Button();
+      this.btnEditTree = new System.Windows.Forms.Button();
+      this.tabImages = new System.Windows.Forms.TabPage();
+      this.lblImage2 = new System.Windows.Forms.Label();
+      this.txtImage2 = new System.Windows.Forms.TextBox();
+      this.btnSaveImages = new System.Windows.Forms.Button();
+      this.label4 = new System.Windows.Forms.Label();
+      this.txtImagePath = new System.Windows.Forms.TextBox();
+      this.lstImages = new System.Windows.Forms.ListBox();
+      this.imagesCM = new System.Windows.Forms.ContextMenu();
+      this.addImageset = new System.Windows.Forms.MenuItem();
+      this.delImageset = new System.Windows.Forms.MenuItem();
+      this.openFile = new System.Windows.Forms.OpenFileDialog();
+      this.tabs.SuspendLayout();
+      this.tabPaths.SuspendLayout();
+      this.tabMaps.SuspendLayout();
+      this.grpMap.SuspendLayout();
+      this.grpMapGroup.SuspendLayout();
+      this.tabImages.SuspendLayout();
+      this.SuspendLayout();
+      // 
+      // mainMenu
+      // 
+      this.mainMenu.MenuItems.AddRange(new System.Windows.Forms.MenuItem[] {
+            this.miFile});
+      // 
+      // miFile
+      // 
+      this.miFile.Index = 0;
+      this.miFile.MenuItems.AddRange(new System.Windows.Forms.MenuItem[] {
+            this.menuItem1,
+            this.closeItem});
+      this.miFile.Text = "File";
+      // 
+      // menuItem1
+      // 
+      this.menuItem1.Index = 0;
+      this.menuItem1.Text = "Import map settings";
+      // 
+      // closeItem
+      // 
+      this.closeItem.Index = 1;
+      this.closeItem.Text = "Close";
+      this.closeItem.Click += new System.EventHandler(this.closeItem_Click);
+      // 
+      // tabs
+      // 
+      this.tabs.Controls.Add(this.tabPaths);
+      this.tabs.Controls.Add(this.tabMaps);
+      this.tabs.Controls.Add(this.tabImages);
+      this.tabs.Dock = System.Windows.Forms.DockStyle.Fill;
+      this.tabs.Location = new System.Drawing.Point(0, 0);
+      this.tabs.Name = "tabs";
+      this.tabs.SelectedIndex = 0;
+      this.tabs.Size = new System.Drawing.Size(432, 427);
+      this.tabs.TabIndex = 0;
+      // 
+      // tabPaths
+      // 
+      this.tabPaths.Controls.Add(this.btnSave);
+      this.tabPaths.Controls.Add(this.runInstaller);
+      this.tabPaths.Controls.Add(this.btnFindImage);
+      this.tabPaths.Controls.Add(this.btnFindMap);
+      this.tabPaths.Controls.Add(this.txtPalettes);
+      this.tabPaths.Controls.Add(this.label10);
+      this.tabPaths.Controls.Add(this.btnClearRegistry);
+      this.tabPaths.Controls.Add(this.lblReminder);
+      this.tabPaths.Controls.Add(this.txtCursor);
+      this.tabPaths.Controls.Add(this.txtImages);
+      this.tabPaths.Controls.Add(this.txtMap);
+      this.tabPaths.Controls.Add(this.label3);
+      this.tabPaths.Controls.Add(this.label2);
+      this.tabPaths.Controls.Add(this.label1);
+      this.tabPaths.Location = new System.Drawing.Point(4, 22);
+      this.tabPaths.Name = "tabPaths";
+      this.tabPaths.Size = new System.Drawing.Size(424, 401);
+      this.tabPaths.TabIndex = 0;
+      this.tabPaths.Text = "Paths";
+      // 
+      // btnSave
+      // 
+      this.btnSave.Location = new System.Drawing.Point(8, 192);
+      this.btnSave.Name = "btnSave";
+      this.btnSave.Size = new System.Drawing.Size(80, 23);
+      this.btnSave.TabIndex = 14;
+      this.btnSave.Text = "Save paths";
+      this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
+      // 
+      // runInstaller
+      // 
+      this.runInstaller.Location = new System.Drawing.Point(144, 296);
+      this.runInstaller.Name = "runInstaller";
+      this.runInstaller.Size = new System.Drawing.Size(88, 23);
+      this.runInstaller.TabIndex = 13;
+      this.runInstaller.Text = "Run installer";
+      this.runInstaller.Click += new System.EventHandler(this.runInstaller_Click);
+      // 
+      // btnFindImage
+      // 
+      this.btnFindImage.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+      this.btnFindImage.Location = new System.Drawing.Point(376, 32);
+      this.btnFindImage.Name = "btnFindImage";
+      this.btnFindImage.Size = new System.Drawing.Size(48, 23);
+      this.btnFindImage.TabIndex = 11;
+      this.btnFindImage.Text = "Find";
+      this.btnFindImage.Click += new System.EventHandler(this.btnFindImage_Click);
+      // 
+      // btnFindMap
+      // 
+      this.btnFindMap.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+      this.btnFindMap.Location = new System.Drawing.Point(376, 8);
+      this.btnFindMap.Name = "btnFindMap";
+      this.btnFindMap.Size = new System.Drawing.Size(48, 23);
+      this.btnFindMap.TabIndex = 10;
+      this.btnFindMap.Text = "Find";
+      this.btnFindMap.Click += new System.EventHandler(this.btnFindMap_Click);
+      // 
+      // txtPalettes
+      // 
+      this.txtPalettes.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
+                  | System.Windows.Forms.AnchorStyles.Right)));
+      this.txtPalettes.Location = new System.Drawing.Point(64, 80);
+      this.txtPalettes.Name = "txtPalettes";
+      this.txtPalettes.Size = new System.Drawing.Size(352, 20);
+      this.txtPalettes.TabIndex = 9;
+      this.txtPalettes.Visible = false;
+      // 
+      // label10
+      // 
+      this.label10.Location = new System.Drawing.Point(0, 80);
+      this.label10.Name = "label10";
+      this.label10.Size = new System.Drawing.Size(64, 20);
+      this.label10.TabIndex = 8;
+      this.label10.Text = "Palettes:";
+      this.label10.Visible = false;
+      // 
+      // btnClearRegistry
+      // 
+      this.btnClearRegistry.Location = new System.Drawing.Point(8, 296);
+      this.btnClearRegistry.Name = "btnClearRegistry";
+      this.btnClearRegistry.Size = new System.Drawing.Size(128, 23);
+      this.btnClearRegistry.TabIndex = 7;
+      this.btnClearRegistry.Text = "Clear Registry Settings";
+      this.btnClearRegistry.Click += new System.EventHandler(this.btnClearRegistry_Click);
+      // 
+      // lblReminder
+      // 
+      this.lblReminder.Location = new System.Drawing.Point(8, 160);
+      this.lblReminder.Name = "lblReminder";
+      this.lblReminder.Size = new System.Drawing.Size(264, 32);
+      this.lblReminder.TabIndex = 6;
+      this.lblReminder.Text = "None of your changes will be made until you click the save button below";
+      // 
+      // txtCursor
+      // 
+      this.txtCursor.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
+                  | System.Windows.Forms.AnchorStyles.Right)));
+      this.txtCursor.Location = new System.Drawing.Point(64, 56);
+      this.txtCursor.Name = "txtCursor";
+      this.txtCursor.Size = new System.Drawing.Size(352, 20);
+      this.txtCursor.TabIndex = 5;
+      // 
+      // txtImages
+      // 
+      this.txtImages.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
+                  | System.Windows.Forms.AnchorStyles.Right)));
+      this.txtImages.Location = new System.Drawing.Point(64, 32);
+      this.txtImages.Name = "txtImages";
+      this.txtImages.Size = new System.Drawing.Size(312, 20);
+      this.txtImages.TabIndex = 4;
+      // 
+      // txtMap
+      // 
+      this.txtMap.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
+                  | System.Windows.Forms.AnchorStyles.Right)));
+      this.txtMap.Location = new System.Drawing.Point(64, 8);
+      this.txtMap.Name = "txtMap";
+      this.txtMap.Size = new System.Drawing.Size(312, 20);
+      this.txtMap.TabIndex = 3;
+      // 
+      // label3
+      // 
+      this.label3.Location = new System.Drawing.Point(0, 56);
+      this.label3.Name = "label3";
+      this.label3.Size = new System.Drawing.Size(64, 20);
+      this.label3.TabIndex = 2;
+      this.label3.Text = "Cursor:";
+      // 
+      // label2
+      // 
+      this.label2.Location = new System.Drawing.Point(0, 32);
+      this.label2.Name = "label2";
+      this.label2.Size = new System.Drawing.Size(64, 20);
+      this.label2.TabIndex = 1;
+      this.label2.Text = "Images:";
+      // 
+      // label1
+      // 
+      this.label1.Location = new System.Drawing.Point(0, 8);
+      this.label1.Name = "label1";
+      this.label1.Size = new System.Drawing.Size(64, 20);
+      this.label1.TabIndex = 0;
+      this.label1.Text = "Map Data:";
+      // 
+      // tabMaps
+      // 
+      this.tabMaps.Controls.Add(this.grpMap);
+      this.tabMaps.Controls.Add(this.grpMapGroup);
+      this.tabMaps.Controls.Add(this.treeMaps);
+      this.tabMaps.Controls.Add(this.btnSaveMapEdit);
+      this.tabMaps.Controls.Add(this.btnEditTree);
+      this.tabMaps.Location = new System.Drawing.Point(4, 22);
+      this.tabMaps.Name = "tabMaps";
+      this.tabMaps.Size = new System.Drawing.Size(424, 401);
+      this.tabMaps.TabIndex = 1;
+      this.tabMaps.Text = "Map Files";
+      // 
+      // grpMap
+      // 
+      this.grpMap.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
+                  | System.Windows.Forms.AnchorStyles.Left)));
+      this.grpMap.Controls.Add(this.btnPaste);
+      this.grpMap.Controls.Add(this.btnCopy);
+      this.grpMap.Controls.Add(this.btnUp);
+      this.grpMap.Controls.Add(this.btnDown);
+      this.grpMap.Controls.Add(this.button2);
+      this.grpMap.Controls.Add(this.btnMoveLeft);
+      this.grpMap.Controls.Add(this.listAllImages);
+      this.grpMap.Controls.Add(this.label9);
+      this.grpMap.Controls.Add(this.listMapImages);
+      this.grpMap.Controls.Add(this.label8);
+      this.grpMap.Enabled = false;
+      this.grpMap.Location = new System.Drawing.Point(152, 184);
+      this.grpMap.Name = "grpMap";
+      this.grpMap.Size = new System.Drawing.Size(272, 215);
+      this.grpMap.TabIndex = 2;
+      this.grpMap.TabStop = false;
+      this.grpMap.Text = "Map File";
+      // 
+      // btnPaste
+      // 
+      this.btnPaste.Location = new System.Drawing.Point(104, 176);
+      this.btnPaste.Name = "btnPaste";
+      this.btnPaste.Size = new System.Drawing.Size(56, 23);
+      this.btnPaste.TabIndex = 9;
+      this.btnPaste.Text = "Paste";
+      this.btnPaste.Click += new System.EventHandler(this.btnPaste_Click);
+      // 
+      // btnCopy
+      // 
+      this.btnCopy.Location = new System.Drawing.Point(104, 152);
+      this.btnCopy.Name = "btnCopy";
+      this.btnCopy.Size = new System.Drawing.Size(56, 23);
+      this.btnCopy.TabIndex = 8;
+      this.btnCopy.Text = "Copy";
+      this.btnCopy.Click += new System.EventHandler(this.btnCopy_Click);
+      // 
+      // btnUp
+      // 
+      this.btnUp.Location = new System.Drawing.Point(104, 32);
+      this.btnUp.Name = "btnUp";
+      this.btnUp.Size = new System.Drawing.Size(56, 23);
+      this.btnUp.TabIndex = 7;
+      this.btnUp.Text = "Up";
+      this.btnUp.Click += new System.EventHandler(this.btnUp_Click);
+      // 
+      // btnDown
+      // 
+      this.btnDown.Location = new System.Drawing.Point(104, 56);
+      this.btnDown.Name = "btnDown";
+      this.btnDown.Size = new System.Drawing.Size(56, 23);
+      this.btnDown.TabIndex = 6;
+      this.btnDown.Text = "Down";
+      this.btnDown.Click += new System.EventHandler(this.btnDown_Click);
+      // 
+      // button2
+      // 
+      this.button2.Location = new System.Drawing.Point(104, 112);
+      this.button2.Name = "button2";
+      this.button2.Size = new System.Drawing.Size(56, 23);
+      this.button2.TabIndex = 5;
+      this.button2.Text = "->";
+      this.button2.Click += new System.EventHandler(this.button2_Click);
+      // 
+      // btnMoveLeft
+      // 
+      this.btnMoveLeft.Location = new System.Drawing.Point(104, 88);
+      this.btnMoveLeft.Name = "btnMoveLeft";
+      this.btnMoveLeft.Size = new System.Drawing.Size(56, 23);
+      this.btnMoveLeft.TabIndex = 4;
+      this.btnMoveLeft.Text = "<-";
+      this.btnMoveLeft.Click += new System.EventHandler(this.btnMoveLeft_Click);
+      // 
+      // listAllImages
+      // 
+      this.listAllImages.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
+                  | System.Windows.Forms.AnchorStyles.Left)));
+      this.listAllImages.Location = new System.Drawing.Point(168, 32);
+      this.listAllImages.Name = "listAllImages";
+      this.listAllImages.SelectionMode = System.Windows.Forms.SelectionMode.MultiExtended;
+      this.listAllImages.Size = new System.Drawing.Size(96, 173);
+      this.listAllImages.TabIndex = 3;
+      // 
+      // label9
+      // 
+      this.label9.Location = new System.Drawing.Point(168, 16);
+      this.label9.Name = "label9";
+      this.label9.Size = new System.Drawing.Size(96, 16);
+      this.label9.TabIndex = 2;
+      this.label9.Text = "Available Images";
+      // 
+      // listMapImages
+      // 
+      this.listMapImages.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
+                  | System.Windows.Forms.AnchorStyles.Left)));
+      this.listMapImages.Location = new System.Drawing.Point(8, 32);
+      this.listMapImages.Name = "listMapImages";
+      this.listMapImages.Size = new System.Drawing.Size(88, 173);
+      this.listMapImages.TabIndex = 1;
+      // 
+      // label8
+      // 
+      this.label8.Location = new System.Drawing.Point(8, 16);
+      this.label8.Name = "label8";
+      this.label8.Size = new System.Drawing.Size(100, 16);
+      this.label8.TabIndex = 0;
+      this.label8.Text = "Image List";
+      // 
+      // grpMapGroup
+      // 
+      this.grpMapGroup.Controls.Add(this.label11);
+      this.grpMapGroup.Controls.Add(this.txtBlank);
+      this.grpMapGroup.Controls.Add(this.cbPalette);
+      this.grpMapGroup.Controls.Add(this.label7);
+      this.grpMapGroup.Controls.Add(this.label6);
+      this.grpMapGroup.Controls.Add(this.label5);
+      this.grpMapGroup.Controls.Add(this.txtRmp);
+      this.grpMapGroup.Controls.Add(this.txtRoot);
+      this.grpMapGroup.Enabled = false;
+      this.grpMapGroup.Location = new System.Drawing.Point(152, 0);
+      this.grpMapGroup.Name = "grpMapGroup";
+      this.grpMapGroup.Size = new System.Drawing.Size(272, 184);
+      this.grpMapGroup.TabIndex = 1;
+      this.grpMapGroup.TabStop = false;
+      this.grpMapGroup.Text = "Map Group";
+      // 
+      // label11
+      // 
+      this.label11.Location = new System.Drawing.Point(8, 96);
+      this.label11.Name = "label11";
+      this.label11.Size = new System.Drawing.Size(100, 16);
+      this.label11.TabIndex = 7;
+      this.label11.Text = "Blanks Path";
+      // 
+      // txtBlank
+      // 
+      this.txtBlank.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
+                  | System.Windows.Forms.AnchorStyles.Right)));
+      this.txtBlank.Location = new System.Drawing.Point(8, 112);
+      this.txtBlank.Name = "txtBlank";
+      this.txtBlank.Size = new System.Drawing.Size(256, 20);
+      this.txtBlank.TabIndex = 6;
+      // 
+      // cbPalette
+      // 
+      this.cbPalette.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+      this.cbPalette.Location = new System.Drawing.Point(8, 152);
+      this.cbPalette.Name = "cbPalette";
+      this.cbPalette.Size = new System.Drawing.Size(104, 21);
+      this.cbPalette.TabIndex = 5;
+      this.cbPalette.SelectedIndexChanged += new System.EventHandler(this.cbPalette_SelectedIndexChanged);
+      // 
+      // label7
+      // 
+      this.label7.Location = new System.Drawing.Point(8, 136);
+      this.label7.Name = "label7";
+      this.label7.Size = new System.Drawing.Size(100, 16);
+      this.label7.TabIndex = 4;
+      this.label7.Text = "Palette";
+      // 
+      // label6
+      // 
+      this.label6.Location = new System.Drawing.Point(8, 56);
+      this.label6.Name = "label6";
+      this.label6.Size = new System.Drawing.Size(100, 16);
+      this.label6.TabIndex = 3;
+      this.label6.Text = "Rmp Path";
+      // 
+      // label5
+      // 
+      this.label5.Location = new System.Drawing.Point(8, 16);
+      this.label5.Name = "label5";
+      this.label5.Size = new System.Drawing.Size(100, 16);
+      this.label5.TabIndex = 2;
+      this.label5.Text = "Root Path";
+      // 
+      // txtRmp
+      // 
+      this.txtRmp.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
+                  | System.Windows.Forms.AnchorStyles.Right)));
+      this.txtRmp.Location = new System.Drawing.Point(8, 72);
+      this.txtRmp.Name = "txtRmp";
+      this.txtRmp.Size = new System.Drawing.Size(256, 20);
+      this.txtRmp.TabIndex = 1;
+      this.txtRmp.Leave += new System.EventHandler(this.txtRmp_Leave);
+      this.txtRmp.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtRmp_KeyPress);
+      // 
+      // txtRoot
+      // 
+      this.txtRoot.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
+                  | System.Windows.Forms.AnchorStyles.Right)));
+      this.txtRoot.Location = new System.Drawing.Point(8, 32);
+      this.txtRoot.Name = "txtRoot";
+      this.txtRoot.Size = new System.Drawing.Size(256, 20);
+      this.txtRoot.TabIndex = 0;
+      this.txtRoot.Leave += new System.EventHandler(this.txtRoot_Leave);
+      this.txtRoot.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtRoot_KeyPress);
+      // 
+      // treeMaps
+      // 
+      this.treeMaps.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
+                  | System.Windows.Forms.AnchorStyles.Left)));
+      this.treeMaps.ContextMenu = this.cmTree;
+      this.treeMaps.Location = new System.Drawing.Point(0, 24);
+      this.treeMaps.Name = "treeMaps";
+      this.treeMaps.Size = new System.Drawing.Size(152, 376);
+      this.treeMaps.TabIndex = 0;
+      this.treeMaps.AfterSelect += new System.Windows.Forms.TreeViewEventHandler(this.treeMaps_AfterSelect);
+      // 
+      // cmTree
+      // 
+      this.cmTree.MenuItems.AddRange(new System.Windows.Forms.MenuItem[] {
+            this.newGroup,
+            this.delGroup,
+            this.addSub,
+            this.delSub,
+            this.addMap,
+            this.delMap});
+      // 
+      // newGroup
+      // 
+      this.newGroup.Index = 0;
+      this.newGroup.Text = "New group";
+      this.newGroup.Click += new System.EventHandler(this.newGroup_Click);
+      // 
+      // delGroup
+      // 
+      this.delGroup.Index = 1;
+      this.delGroup.Text = "Delete group";
+      this.delGroup.Click += new System.EventHandler(this.delGroup_Click);
+      // 
+      // addSub
+      // 
+      this.addSub.Index = 2;
+      this.addSub.Text = "Add sub-group";
+      this.addSub.Click += new System.EventHandler(this.addSub_Click);
+      // 
+      // delSub
+      // 
+      this.delSub.Index = 3;
+      this.delSub.Text = "Delete sub-group";
+      this.delSub.Click += new System.EventHandler(this.delSub_Click);
+      // 
+      // addMap
+      // 
+      this.addMap.Index = 4;
+      this.addMap.MenuItems.AddRange(new System.Windows.Forms.MenuItem[] {
+            this.addNewMap,
+            this.addExistingMap});
+      this.addMap.Text = "Add map";
+      // 
+      // addNewMap
+      // 
+      this.addNewMap.Index = 0;
+      this.addNewMap.Text = "New Map";
+      this.addNewMap.Click += new System.EventHandler(this.addNewMap_Click);
+      // 
+      // addExistingMap
+      // 
+      this.addExistingMap.Index = 1;
+      this.addExistingMap.Text = "Existing Map";
+      this.addExistingMap.Click += new System.EventHandler(this.addExistingMap_Click);
+      // 
+      // delMap
+      // 
+      this.delMap.Index = 5;
+      this.delMap.Text = "Delete map";
+      this.delMap.Click += new System.EventHandler(this.delMap_Click);
+      // 
+      // btnSaveMapEdit
+      // 
+      this.btnSaveMapEdit.Location = new System.Drawing.Point(0, 0);
+      this.btnSaveMapEdit.Name = "btnSaveMapEdit";
+      this.btnSaveMapEdit.Size = new System.Drawing.Size(48, 23);
+      this.btnSaveMapEdit.TabIndex = 8;
+      this.btnSaveMapEdit.Text = "Save";
+      this.btnSaveMapEdit.Click += new System.EventHandler(this.btnSaveMapEdit_Click);
+      // 
+      // btnEditTree
+      // 
+      this.btnEditTree.Location = new System.Drawing.Point(48, 0);
+      this.btnEditTree.Name = "btnEditTree";
+      this.btnEditTree.Size = new System.Drawing.Size(64, 23);
+      this.btnEditTree.TabIndex = 6;
+      this.btnEditTree.Text = "Edit Tree";
+      this.btnEditTree.Click += new System.EventHandler(this.moveMaps_Click);
+      // 
+      // tabImages
+      // 
+      this.tabImages.Controls.Add(this.lblImage2);
+      this.tabImages.Controls.Add(this.txtImage2);
+      this.tabImages.Controls.Add(this.btnSaveImages);
+      this.tabImages.Controls.Add(this.label4);
+      this.tabImages.Controls.Add(this.txtImagePath);
+      this.tabImages.Controls.Add(this.lstImages);
+      this.tabImages.Location = new System.Drawing.Point(4, 22);
+      this.tabImages.Name = "tabImages";
+      this.tabImages.Size = new System.Drawing.Size(424, 401);
+      this.tabImages.TabIndex = 2;
+      this.tabImages.Text = "Image Files";
+      // 
+      // lblImage2
+      // 
+      this.lblImage2.Location = new System.Drawing.Point(120, 208);
+      this.lblImage2.Name = "lblImage2";
+      this.lblImage2.Size = new System.Drawing.Size(100, 16);
+      this.lblImage2.TabIndex = 14;
+      this.lblImage2.Text = "Image.dat path";
+      // 
+      // txtImage2
+      // 
+      this.txtImage2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
+                  | System.Windows.Forms.AnchorStyles.Right)));
+      this.txtImage2.Location = new System.Drawing.Point(120, 224);
+      this.txtImage2.Name = "txtImage2";
+      this.txtImage2.ReadOnly = true;
+      this.txtImage2.Size = new System.Drawing.Size(272, 20);
+      this.txtImage2.TabIndex = 12;
+      // 
+      // btnSaveImages
+      // 
+      this.btnSaveImages.Location = new System.Drawing.Point(120, 248);
+      this.btnSaveImages.Name = "btnSaveImages";
+      this.btnSaveImages.Size = new System.Drawing.Size(75, 23);
+      this.btnSaveImages.TabIndex = 3;
+      this.btnSaveImages.Text = "Save";
+      this.btnSaveImages.Click += new System.EventHandler(this.btnSaveImages_Click);
+      // 
+      // label4
+      // 
+      this.label4.Location = new System.Drawing.Point(120, 96);
+      this.label4.Name = "label4";
+      this.label4.Size = new System.Drawing.Size(56, 16);
+      this.label4.TabIndex = 2;
+      this.label4.Text = "Path";
+      // 
+      // txtImagePath
+      // 
+      this.txtImagePath.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
+                  | System.Windows.Forms.AnchorStyles.Right)));
+      this.txtImagePath.Location = new System.Drawing.Point(120, 112);
+      this.txtImagePath.Name = "txtImagePath";
+      this.txtImagePath.ReadOnly = true;
+      this.txtImagePath.Size = new System.Drawing.Size(296, 20);
+      this.txtImagePath.TabIndex = 1;
+      this.txtImagePath.TextChanged += new System.EventHandler(this.txtImagePath_TextChanged);
+      // 
+      // lstImages
+      // 
+      this.lstImages.ContextMenu = this.imagesCM;
+      this.lstImages.Dock = System.Windows.Forms.DockStyle.Left;
+      this.lstImages.Location = new System.Drawing.Point(0, 0);
+      this.lstImages.Name = "lstImages";
+      this.lstImages.Size = new System.Drawing.Size(120, 394);
+      this.lstImages.TabIndex = 0;
+      this.lstImages.SelectedIndexChanged += new System.EventHandler(this.lstImages_SelectedIndexChanged);
+      // 
+      // imagesCM
+      // 
+      this.imagesCM.MenuItems.AddRange(new System.Windows.Forms.MenuItem[] {
+            this.addImageset,
+            this.delImageset});
+      // 
+      // addImageset
+      // 
+      this.addImageset.Index = 0;
+      this.addImageset.Text = "Add";
+      this.addImageset.Click += new System.EventHandler(this.addImageset_Click);
+      // 
+      // delImageset
+      // 
+      this.delImageset.Index = 1;
+      this.delImageset.Text = "Remove";
+      this.delImageset.Click += new System.EventHandler(this.delImageset_Click);
+      // 
+      // openFile
+      // 
+      this.openFile.Filter = "map files|*.map|dat files|*.dat|Pck files|*.pck|All files|*.*";
+      // 
+      // PathsEditor
+      // 
+      this.AutoScaleBaseSize = new System.Drawing.Size(5, 13);
+      this.ClientSize = new System.Drawing.Size(432, 427);
+      this.Controls.Add(this.tabs);
+      this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+      this.MaximizeBox = false;
+      this.Menu = this.mainMenu;
+      this.MinimizeBox = false;
+      this.Name = "PathsEditor";
+      this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+      this.Text = "PathsEditor";
+      this.tabs.ResumeLayout(false);
+      this.tabPaths.ResumeLayout(false);
+      this.tabPaths.PerformLayout();
+      this.tabMaps.ResumeLayout(false);
+      this.grpMap.ResumeLayout(false);
+      this.grpMapGroup.ResumeLayout(false);
+      this.grpMapGroup.PerformLayout();
+      this.tabImages.ResumeLayout(false);
+      this.tabImages.PerformLayout();
+      this.ResumeLayout(false);
 
 		}
 		#endregion
@@ -1193,12 +1180,9 @@ namespace MapView
 			string ext = file.Substring(file.LastIndexOf("."));
 			file = file.Substring(0,file.LastIndexOf("."));
 
-			StreamWriter sw = new StreamWriter(new FileStream(path+file+".new",FileMode.Create));
 			try
 			{
-				//GameInfo.TilesetInfo.Save(sw);
-				sw.Flush();
-				sw.Close();
+        GameInfo.TilesetInfo.Save(path + file + ".new");
 
 				if(File.Exists(txtMap.Text))
 				{
@@ -1214,8 +1198,6 @@ namespace MapView
 			}
 			catch(Exception e)
 			{
-				sw.Close();
-
 				if(File.Exists(path+file+".new"))
 					File.Delete(path+file+".new");
 

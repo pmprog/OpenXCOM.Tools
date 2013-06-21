@@ -30,7 +30,7 @@ namespace MapView
 		private Dictionary<string, Form> registeredForms;
 		private static Dictionary<string, Settings> settingsHash;
 
-		private LoadOfType<IMapDesc> loadedTypes;
+		//private LoadOfType<IMapDesc> loadedTypes;
 
 		//public event StringDelegate SendMessage;
 
