@@ -112,6 +112,8 @@ namespace XCom
 
 				((IXCTileset)tilesets[s]).Save(sw,vc);
 			}
+
+      sw.Close();
 		}
 	}
 }

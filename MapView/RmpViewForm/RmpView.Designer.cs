@@ -48,6 +48,9 @@ namespace MapView.RmpViewForm
       this.rankLabel = new System.Windows.Forms.Label();
       this.idxLabel = new System.Windows.Forms.Label();
       this.gbNodeInfo = new System.Windows.Forms.GroupBox();
+      this.pasteNode = new System.Windows.Forms.Button();
+      this.copyNode = new System.Windows.Forms.Button();
+      this.AutoconnectNodes = new System.Windows.Forms.CheckBox();
       this.txtDist5 = new System.Windows.Forms.TextBox();
       this.txtDist4 = new System.Windows.Forms.TextBox();
       this.txtDist3 = new System.Windows.Forms.TextBox();
@@ -68,7 +71,6 @@ namespace MapView.RmpViewForm
       this.menuStrip1 = new System.Windows.Forms.MenuStrip();
       this.miEdit = new System.Windows.Forms.ToolStripMenuItem();
       this.miOptions = new System.Windows.Forms.ToolStripMenuItem();
-      this.AutoconnectNodes = new System.Windows.Forms.CheckBox();
       this.gbNodeInfo.SuspendLayout();
       this.menuStrip1.SuspendLayout();
       this.SuspendLayout();
@@ -236,6 +238,8 @@ namespace MapView.RmpViewForm
       // 
       // gbNodeInfo
       // 
+      this.gbNodeInfo.Controls.Add(this.pasteNode);
+      this.gbNodeInfo.Controls.Add(this.copyNode);
       this.gbNodeInfo.Controls.Add(this.AutoconnectNodes);
       this.gbNodeInfo.Controls.Add(this.txtDist5);
       this.gbNodeInfo.Controls.Add(this.txtDist4);
@@ -276,10 +280,38 @@ namespace MapView.RmpViewForm
       this.gbNodeInfo.Dock = System.Windows.Forms.DockStyle.Bottom;
       this.gbNodeInfo.Location = new System.Drawing.Point(0, 230);
       this.gbNodeInfo.Name = "gbNodeInfo";
-      this.gbNodeInfo.Size = new System.Drawing.Size(504, 193);
+      this.gbNodeInfo.Size = new System.Drawing.Size(536, 193);
       this.gbNodeInfo.TabIndex = 1;
       this.gbNodeInfo.TabStop = false;
       this.gbNodeInfo.Text = "Node Info";
+      // 
+      // pasteNode
+      // 
+      this.pasteNode.Location = new System.Drawing.Point(100, 156);
+      this.pasteNode.Name = "pasteNode";
+      this.pasteNode.Size = new System.Drawing.Size(88, 23);
+      this.pasteNode.TabIndex = 35;
+      this.pasteNode.Text = "Paste Node";
+      this.pasteNode.Click += new System.EventHandler(this.pasteNode_Click);
+      // 
+      // copyNode
+      // 
+      this.copyNode.Location = new System.Drawing.Point(8, 156);
+      this.copyNode.Name = "copyNode";
+      this.copyNode.Size = new System.Drawing.Size(88, 23);
+      this.copyNode.TabIndex = 34;
+      this.copyNode.Text = "Copy Node";
+      this.copyNode.Click += new System.EventHandler(this.copyNode_Click);
+      // 
+      // AutoconnectNodes
+      // 
+      this.AutoconnectNodes.AutoSize = true;
+      this.AutoconnectNodes.Location = new System.Drawing.Point(296, 160);
+      this.AutoconnectNodes.Name = "AutoconnectNodes";
+      this.AutoconnectNodes.Size = new System.Drawing.Size(125, 17);
+      this.AutoconnectNodes.TabIndex = 33;
+      this.AutoconnectNodes.Text = "Auto-Connect Nodes";
+      this.AutoconnectNodes.UseVisualStyleBackColor = true;
       // 
       // txtDist5
       // 
@@ -384,7 +416,7 @@ namespace MapView.RmpViewForm
       // 
       // btnRemove
       // 
-      this.btnRemove.Location = new System.Drawing.Point(136, 160);
+      this.btnRemove.Location = new System.Drawing.Point(192, 156);
       this.btnRemove.Name = "btnRemove";
       this.btnRemove.Size = new System.Drawing.Size(88, 23);
       this.btnRemove.TabIndex = 2;
@@ -410,7 +442,7 @@ namespace MapView.RmpViewForm
       // lblMouseOver
       // 
       this.lblMouseOver.ForeColor = System.Drawing.Color.Red;
-      this.lblMouseOver.Location = new System.Drawing.Point(8, 160);
+      this.lblMouseOver.Location = new System.Drawing.Point(376, 36);
       this.lblMouseOver.Name = "lblMouseOver";
       this.lblMouseOver.Size = new System.Drawing.Size(112, 16);
       this.lblMouseOver.TabIndex = 2;
@@ -421,7 +453,7 @@ namespace MapView.RmpViewForm
       this.contentPane.Dock = System.Windows.Forms.DockStyle.Fill;
       this.contentPane.Location = new System.Drawing.Point(0, 24);
       this.contentPane.Name = "contentPane";
-      this.contentPane.Size = new System.Drawing.Size(504, 206);
+      this.contentPane.Size = new System.Drawing.Size(536, 206);
       this.contentPane.TabIndex = 2;
       // 
       // menuStrip1
@@ -430,7 +462,7 @@ namespace MapView.RmpViewForm
             this.miEdit});
       this.menuStrip1.Location = new System.Drawing.Point(0, 0);
       this.menuStrip1.Name = "menuStrip1";
-      this.menuStrip1.Size = new System.Drawing.Size(504, 24);
+      this.menuStrip1.Size = new System.Drawing.Size(536, 24);
       this.menuStrip1.TabIndex = 0;
       this.menuStrip1.Text = "menuStrip1";
       // 
@@ -449,20 +481,10 @@ namespace MapView.RmpViewForm
       this.miOptions.Text = "Options";
       this.miOptions.Click += new System.EventHandler(this.options_click);
       // 
-      // AutoconnectNodes
-      // 
-      this.AutoconnectNodes.AutoSize = true;
-      this.AutoconnectNodes.Location = new System.Drawing.Point(236, 168);
-      this.AutoconnectNodes.Name = "AutoconnectNodes";
-      this.AutoconnectNodes.Size = new System.Drawing.Size(125, 17);
-      this.AutoconnectNodes.TabIndex = 33;
-      this.AutoconnectNodes.Text = "Auto-Connect Nodes";
-      this.AutoconnectNodes.UseVisualStyleBackColor = true;
-      // 
       // RmpView
       // 
       this.AutoScaleBaseSize = new System.Drawing.Size(5, 13);
-      this.ClientSize = new System.Drawing.Size(504, 423);
+      this.ClientSize = new System.Drawing.Size(536, 423);
       this.Controls.Add(this.contentPane);
       this.Controls.Add(this.menuStrip1);
       this.Controls.Add(this.gbNodeInfo);
@@ -521,5 +543,7 @@ namespace MapView.RmpViewForm
 		private System.Windows.Forms.ToolStripMenuItem miEdit;
 		private System.Windows.Forms.ToolStripMenuItem miOptions;
     private System.Windows.Forms.CheckBox AutoconnectNodes;
+    private System.Windows.Forms.Button pasteNode;
+    private System.Windows.Forms.Button copyNode;
 	}
 }

@@ -53,6 +53,14 @@ namespace MapView.RmpViewForm
 			return null;
 		}
 
+    public Point GetTileCoordinates(int x, int y)
+    {
+      Point p = convertCoordsDiamond(x, y);
+      if (p.Y >= 0 && p.Y < map.MapSize.Rows && p.X >= 0 && p.X < map.MapSize.Cols)
+        return p;
+      return new Point(-1,-1);
+    }
+
 		protected override void OnMouseDown(MouseEventArgs e)
 		{
 			//Point pt = convertCoordsDiamond(e.X, e.Y);

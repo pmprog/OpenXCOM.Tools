@@ -153,10 +153,15 @@ namespace MapView.RmpViewForm
 		private void mouseMove(object sender, MouseEventArgs e)
 		{
 			XCMapTile t = rmpPanel.GetTile(e.X, e.Y);
-			if (t != null && t.Rmp != null)
-				lblMouseOver.Text = "Mouse Over: " + t.Rmp.Index;
-			else
-				lblMouseOver.Text = "";
+      if (t != null && t.Rmp != null)
+      {
+        lblMouseOver.Text = "Mouse Over: " + t.Rmp.Index;
+      } else {
+        lblMouseOver.Text = "";
+      }
+      rmpPanel.ptrPosition.X = e.X;
+      rmpPanel.ptrPosition.Y = e.Y;
+      rmpPanel.Refresh();
 		}
 
 		private void panelClick(object sender, MapPanelClickEventArgs e)
@@ -749,12 +754,33 @@ namespace MapView.RmpViewForm
 			brushes["ContentTiles"] = contentBrush;
 			settings.AddSetting("ContentTiles", contentBrush.Color, "Color of map tiles with a content tile", "Other", bc, false, null);
 		}
+
+    private void copyNode_Click(object sender, EventArgs e)
+    {
+      string NodeText = "MVNode|" + cbType.SelectedIndex.ToString() + "|" + cbRank1.SelectedIndex.ToString() + "|" + cbRank2.SelectedIndex.ToString() + "|" + tbZero.Text + "|" + cbUsage.SelectedIndex.ToString();
+      Clipboard.SetText(NodeText);
+    }
+
+    private void pasteNode_Click(object sender, EventArgs e)
+    {
+      string[] NodeData = Clipboard.GetText().Split('|');
+      if( NodeData[0] == "MVNode" )
+      {
+        cbType.SelectedIndex = Int32.Parse(NodeData[1]);
+        cbRank1.SelectedIndex = Int32.Parse(NodeData[2]);
+        cbRank2.SelectedIndex = Int32.Parse(NodeData[3]);
+        tbZero.Text = NodeData[4];
+        cbUsage.SelectedIndex = Int32.Parse(NodeData[5]);
+      }
+    }
 	}
 
 	public class RmpPanel : MapPanel
 	{
 		//private static Dictionary<string,Pen> pens;
 		//private static Dictionary<string, SolidBrush> brushes;
+
+    public Point ptrPosition = new Point(-1,-1);
 
 		private Font myFont = new Font("Arial", 12, FontStyle.Bold);
 
@@ -778,6 +804,12 @@ namespace MapView.RmpViewForm
 		{
 			OnResize(null);
 		}
+
+    //protected override void OnMouseMove(MouseEventArgs e)
+    //{
+    //  ptrPosition.X = e.X;
+    //  ptrPosition.Y = e.Y;
+    //}
 
 		protected override void OnPaint(PaintEventArgs e)
 		{
@@ -958,7 +990,35 @@ namespace MapView.RmpViewForm
 				g.DrawString("N", myFont, System.Drawing.Brushes.Black, Width - 30, 0);
 				g.DrawString("S", myFont, System.Drawing.Brushes.Black, 0, Height - myFont.Height);
 				g.DrawString("E", myFont, System.Drawing.Brushes.Black, Width - 30, Height - myFont.Height);
-			}
+
+        XCMapTile posT = GetTile(ptrPosition.X, ptrPosition.Y);
+        if (posT != null)
+        {
+          Rectangle overlayPos = new Rectangle(ptrPosition.X + 18, ptrPosition.Y, 140, (int)g.MeasureString("X",this.Font).Height + 10 );
+          if (posT.Rmp != null)
+          {
+            overlayPos.Height += (int)g.MeasureString("X", this.Font).Height;
+          }
+          if (overlayPos.X + overlayPos.Width > this.ClientRectangle.Width)
+          {
+            overlayPos.X = ptrPosition.X - overlayPos.Width - 8;
+          }
+          if (overlayPos.Y + overlayPos.Height > this.ClientRectangle.Height)
+          {
+            overlayPos.Y = ptrPosition.X - overlayPos.Height;
+          }
+
+          g.FillRectangle(new SolidBrush(Color.FromArgb(192, 0, 0, 0)), overlayPos);
+          g.FillRectangle(new SolidBrush(Color.FromArgb(192, 255, 255, 255)), overlayPos.X + 3, overlayPos.Y + 3, overlayPos.Width - 6, overlayPos.Height - 6);
+          g.DrawString("Tile " + GetTileCoordinates(ptrPosition.X, ptrPosition.Y).ToString(), this.Font, System.Drawing.Brushes.Black, overlayPos.X + 5, overlayPos.Y + 5);
+          if (posT.Rmp != null)
+          {
+            g.DrawString("Spawns: " + RmpFile.UnitRankUFO[posT.Rmp.URank1].ToString(), this.Font, System.Drawing.Brushes.Black, overlayPos.X + 5, overlayPos.Y + 5 + (int)g.MeasureString("X", this.Font).Height);
+          }
+
+        }
+
+      }
 		}
 	}
 }
