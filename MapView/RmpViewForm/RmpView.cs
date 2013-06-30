@@ -37,6 +37,8 @@ namespace MapView.RmpViewForm
 
 		private static RmpView instance;
 
+    private bool loadingGUI = false;
+
 		private RmpView()
 		{
 			clickRow = clickCol = 0;
@@ -216,6 +218,8 @@ namespace MapView.RmpViewForm
 			gbNodeInfo.Enabled = true;
 			gbNodeInfo.SuspendLayout();
 
+      loadingGUI = true;
+
 			byteList.Clear();
 
 			cbLink1.Items.Clear();
@@ -294,6 +298,8 @@ namespace MapView.RmpViewForm
 			txtDist5.Text = currEntry[4].Distance + "";
 
 			gbNodeInfo.ResumeLayout();
+
+      loadingGUI = false;
 		}
 
 		public void SetMap(object sender, SetMapEventArgs e)
@@ -428,89 +434,94 @@ namespace MapView.RmpViewForm
       return (byte)dist;
 		}
 
+    private void cbLink_SelectedIndexChanged(ComboBox sender, int senderIndex, TextBox senderOut)
+    {
+      if( loadingGUI )
+        return;
+
+      byte? selIdx = sender.SelectedItem as byte?;
+      if( !selIdx.HasValue )
+      {
+        selIdx = (byte?)(sender.SelectedItem as LinkTypes?);
+      }
+
+      if( !selIdx.HasValue )
+      {
+        MessageBox.Show("Error: Determining SelectedIndex value failed");
+        return;
+      }
+
+      try
+      {
+        currEntry[senderIndex].Index = selIdx.Value;
+        if (currEntry[senderIndex].Index < 0xFB)
+        {
+          RmpEntry connected = map.Rmp[currEntry[senderIndex].Index];
+          currEntry[senderIndex].Distance = calcLinkDistance(currEntry, connected, senderOut);
+          if (AutoconnectNodes.Checked)
+          {
+            bool ExistingLink = false;
+            bool SpaceAvailable = false;
+            int SpaceAt = 512;
+            for (int i = 0; i < 5; i++)
+            {
+              if (connected[i].Index == (byte)sender.SelectedItem)
+              {
+                ExistingLink = true;
+                break;
+              }
+              if (connected[i].Index == (byte)LinkTypes.NotUsed)
+              {
+                SpaceAvailable = true;
+                if (i < SpaceAt)
+                  SpaceAt = i;
+              }
+            }
+
+            if (!ExistingLink && SpaceAvailable)
+            {
+              connected[SpaceAt].Index = currEntry.Index;
+              connected[SpaceAt].Distance = calcLinkDistance(connected, currEntry, senderOut);
+            }
+          }
+        }
+      }
+      catch( Exception ex )
+      {
+        /*** I don't like this. 
+        currEntry[senderIndex].Index = (byte)(LinkTypes)sender.SelectedItem;
+        if (currEntry[senderIndex].Index < 0xFB)
+          calcLinkDistance(currEntry, map.Rmp[currEntry[senderIndex].Index], senderOut);
+        */
+        MessageBox.Show("Error: " + ex.Message);
+
+      }
+      Refresh();
+    }
+
 		private void cbLink1_SelectedIndexChanged(object sender, System.EventArgs e)
 		{
-			try
-			{
-				currEntry[0].Index = (byte)cbLink1.SelectedItem;
-				if (currEntry[0].Index < 0xFB)
-					calcLinkDistance(currEntry, map.Rmp[currEntry[0].Index], txtDist1);
-			}
-			catch
-			{
-				currEntry[0].Index = (byte)(LinkTypes)cbLink1.SelectedItem;
-				if (currEntry[0].Index < 0xFB)
-					calcLinkDistance(currEntry, map.Rmp[currEntry[0].Index], txtDist1);
-			}
-			Refresh();
+			cbLink_SelectedIndexChanged( cbLink1, 0, txtDist1);
 		}
 
 		private void cbLink2_SelectedIndexChanged(object sender, System.EventArgs e)
 		{
-			try
-			{
-				currEntry[1].Index = (byte)cbLink2.SelectedItem;
-				if (currEntry[1].Index < 0xFB)
-					calcLinkDistance(currEntry, map.Rmp[currEntry[1].Index], txtDist2);
-			}
-			catch
-			{
-				currEntry[1].Index = (byte)(LinkTypes)cbLink2.SelectedItem;
-				if (currEntry[1].Index < 0xFB)
-					calcLinkDistance(currEntry, map.Rmp[currEntry[1].Index], txtDist2);
-			}
-			Refresh();
+      cbLink_SelectedIndexChanged(cbLink2, 1, txtDist2);
 		}
 
 		private void cbLink3_SelectedIndexChanged(object sender, System.EventArgs e)
 		{
-			try
-			{
-				currEntry[2].Index = (byte)cbLink3.SelectedItem;
-				if (currEntry[2].Index < 0xFB)
-					calcLinkDistance(currEntry, map.Rmp[currEntry[2].Index], txtDist3);
-			}
-			catch
-			{
-				currEntry[2].Index = (byte)(LinkTypes)cbLink3.SelectedItem;
-				if (currEntry[2].Index < 0xFB)
-					calcLinkDistance(currEntry, map.Rmp[currEntry[2].Index], txtDist3);
-			}
-			Refresh();
-		}
+      cbLink_SelectedIndexChanged(cbLink3, 2, txtDist3);
+    }
 
 		private void cbLink4_SelectedIndexChanged(object sender, System.EventArgs e)
 		{
-			try
-			{
-				currEntry[3].Index = (byte)cbLink4.SelectedItem;
-				if (currEntry[3].Index < 0xFB)
-					calcLinkDistance(currEntry, map.Rmp[currEntry[3].Index], txtDist4);
-			}
-			catch
-			{
-				currEntry[3].Index = (byte)(LinkTypes)cbLink4.SelectedItem;
-				if (currEntry[3].Index < 0xFB)
-					calcLinkDistance(currEntry, map.Rmp[currEntry[3].Index], txtDist4);
-			}
-			Refresh();
+      cbLink_SelectedIndexChanged(cbLink4, 3, txtDist4);
 		}
 
 		private void cbLink5_SelectedIndexChanged(object sender, System.EventArgs e)
 		{
-			try
-			{
-				currEntry[4].Index = (byte)cbLink5.SelectedItem;
-				if (currEntry[4].Index < 0xFB)
-					calcLinkDistance(currEntry, map.Rmp[currEntry[4].Index], txtDist5);
-			}
-			catch
-			{
-				currEntry[4].Index = (byte)(LinkTypes)cbLink5.SelectedItem;
-				if (currEntry[4].Index < 0xFB)
-					calcLinkDistance(currEntry, map.Rmp[currEntry[4].Index], txtDist5);
-			}
-			Refresh();
+      cbLink_SelectedIndexChanged(cbLink5, 4, txtDist5);
 		}
 
 		private void btnRemove_Click(object sender, System.EventArgs e)

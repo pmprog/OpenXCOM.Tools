@@ -173,7 +173,12 @@ namespace XCom
 
 		public RmpEntry this[int i]
 		{
-			get{return (RmpEntry)entries[i];}
+			get
+      {
+        if (entries.Count <= i)
+          return null;
+        return (RmpEntry)entries[i];
+      }
 		}
 
 		public int Length

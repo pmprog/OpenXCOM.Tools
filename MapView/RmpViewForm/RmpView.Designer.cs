@@ -306,7 +306,7 @@ namespace MapView.RmpViewForm
       // AutoconnectNodes
       // 
       this.AutoconnectNodes.AutoSize = true;
-      this.AutoconnectNodes.Location = new System.Drawing.Point(296, 160);
+      this.AutoconnectNodes.Location = new System.Drawing.Point(292, 160);
       this.AutoconnectNodes.Name = "AutoconnectNodes";
       this.AutoconnectNodes.Size = new System.Drawing.Size(125, 17);
       this.AutoconnectNodes.TabIndex = 33;

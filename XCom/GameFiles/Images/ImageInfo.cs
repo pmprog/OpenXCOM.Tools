@@ -17,8 +17,8 @@ namespace XCom
 
 		public ImageDescriptor this[string name]
 		{
-			get{return images[name];}
-			set{images[name]=value;}
+			get{return images[name.ToUpper()];}
+			set{images[name.ToUpper()]=value;}
 		}
 
 		public ImageInfo(string inFile,VarCollection v):base(inFile)

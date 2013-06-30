@@ -23,6 +23,12 @@ namespace XCom
 			this.blankPath = blankPath;
 			dependencies = depList;
 
+      if (!File.Exists(basePath + basename + ".MAP"))
+      {
+        MessageBox.Show("File '" + basePath + basename + ".MAP' was not found");
+        return;
+      }
+
 			for (int i = 0; i < tiles.Count; i++)
 				tiles[i].MapID = i;
 
