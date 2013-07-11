@@ -1334,8 +1334,15 @@ namespace MapView
 						int end = file.LastIndexOf(".");
 
 						string name = file.Substring(start,end-start);
-						tSet.AddMap(name,subset.Text);
-						subset.Nodes.Add(name);
+            try
+            {
+              tSet.AddMap(name, subset.Text);
+              subset.Nodes.Add(name);
+            }
+            catch (Exception ex)
+            {
+              MessageBox.Show("Could not add map: " + name + ", Error: " + ex.Message);
+            }
 					}
 
 					//saveMapedit();
