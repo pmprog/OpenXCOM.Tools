@@ -82,6 +82,7 @@ namespace MapView.RmpViewForm
       this.cbLink5.Size = new System.Drawing.Size(72, 21);
       this.cbLink5.TabIndex = 20;
       this.cbLink5.SelectedIndexChanged += new System.EventHandler(this.cbLink5_SelectedIndexChanged);
+      this.cbLink5.Leave += new System.EventHandler(this.cbLink5_Leave);
       // 
       // cbLink4
       // 
@@ -90,6 +91,7 @@ namespace MapView.RmpViewForm
       this.cbLink4.Size = new System.Drawing.Size(72, 21);
       this.cbLink4.TabIndex = 19;
       this.cbLink4.SelectedIndexChanged += new System.EventHandler(this.cbLink4_SelectedIndexChanged);
+      this.cbLink4.Leave += new System.EventHandler(this.cbLink4_Leave);
       // 
       // cbLink3
       // 
@@ -98,6 +100,7 @@ namespace MapView.RmpViewForm
       this.cbLink3.Size = new System.Drawing.Size(72, 21);
       this.cbLink3.TabIndex = 18;
       this.cbLink3.SelectedIndexChanged += new System.EventHandler(this.cbLink3_SelectedIndexChanged);
+      this.cbLink3.Leave += new System.EventHandler(this.cbLink3_Leave);
       // 
       // cbLink2
       // 
@@ -106,6 +109,7 @@ namespace MapView.RmpViewForm
       this.cbLink2.Size = new System.Drawing.Size(72, 21);
       this.cbLink2.TabIndex = 17;
       this.cbLink2.SelectedIndexChanged += new System.EventHandler(this.cbLink2_SelectedIndexChanged);
+      this.cbLink2.Leave += new System.EventHandler(this.cbLink2_Leave);
       // 
       // cbLink1
       // 
@@ -114,6 +118,7 @@ namespace MapView.RmpViewForm
       this.cbLink1.Size = new System.Drawing.Size(72, 21);
       this.cbLink1.TabIndex = 16;
       this.cbLink1.SelectedIndexChanged += new System.EventHandler(this.cbLink1_SelectedIndexChanged);
+      this.cbLink1.Leave += new System.EventHandler(this.cbLink1_Leave);
       // 
       // label1
       // 
@@ -471,13 +476,13 @@ namespace MapView.RmpViewForm
       this.miEdit.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.miOptions});
       this.miEdit.Name = "miEdit";
-      this.miEdit.Size = new System.Drawing.Size(40, 20);
+      this.miEdit.Size = new System.Drawing.Size(37, 20);
       this.miEdit.Text = "Edit";
       // 
       // miOptions
       // 
       this.miOptions.Name = "miOptions";
-      this.miOptions.Size = new System.Drawing.Size(116, 22);
+      this.miOptions.Size = new System.Drawing.Size(111, 22);
       this.miOptions.Text = "Options";
       this.miOptions.Click += new System.EventHandler(this.options_click);
       // 

@@ -171,6 +171,67 @@ namespace MapView.RmpViewForm
 			idxLabel.Text = this.Text;
 			try
 			{
+        if (currEntry != null && e.MouseEventArgs.Button == MouseButtons.Right)
+        {
+          RmpEntry selEntry = ((XCMapTile)e.ClickTile).Rmp;
+          if (selEntry != null)
+          {
+            bool ExistingLink = false;
+            bool SpaceAvailable = false;
+            int SpaceAt = 512;
+            for (int i = 0; i < 5; i++)
+            {
+              if (currEntry[i].Index == selEntry.Index)
+              {
+                ExistingLink = true;
+                break;
+              }
+              if (currEntry[i].Index == (byte)LinkTypes.NotUsed)
+              {
+                SpaceAvailable = true;
+                if (i < SpaceAt)
+                  SpaceAt = i;
+              }
+            }
+            if (!ExistingLink && SpaceAvailable)
+            {
+              currEntry[SpaceAt].Index = selEntry.Index;
+              currEntry[SpaceAt].Distance = calcLinkDistance(currEntry, selEntry, null);
+            }
+
+            if (AutoconnectNodes.Checked)
+            {
+              ExistingLink = false;
+              SpaceAvailable = false;
+              SpaceAt = 512;
+              for (int i = 0; i < 5; i++)
+              {
+                if (selEntry[i].Index == currEntry.Index)
+                {
+                  ExistingLink = true;
+                  break;
+                }
+                if (selEntry[i].Index == (byte)LinkTypes.NotUsed)
+                {
+                  SpaceAvailable = true;
+                  if (i < SpaceAt)
+                    SpaceAt = i;
+                }
+              }
+              if (!ExistingLink && SpaceAvailable)
+              {
+                selEntry[SpaceAt].Index = currEntry.Index;
+                selEntry[SpaceAt].Distance = calcLinkDistance(selEntry, currEntry, null);
+              }
+            }
+
+            fillGUI();
+            Refresh();
+            return;
+          }
+        }
+
+
 				currEntry = ((XCMapTile)e.ClickTile).Rmp;
 
 				if (currEntry == null && e.MouseEventArgs.Button == MouseButtons.Right)
@@ -199,6 +260,8 @@ namespace MapView.RmpViewForm
             }
           }
 				}
+
+
 			}
 			catch { return; }
 
@@ -458,32 +521,6 @@ namespace MapView.RmpViewForm
         {
           RmpEntry connected = map.Rmp[currEntry[senderIndex].Index];
           currEntry[senderIndex].Distance = calcLinkDistance(currEntry, connected, senderOut);
-          if (AutoconnectNodes.Checked)
-          {
-            bool ExistingLink = false;
-            bool SpaceAvailable = false;
-            int SpaceAt = 512;
-            for (int i = 0; i < 5; i++)
-            {
-              if (connected[i].Index == (byte)sender.SelectedItem)
-              {
-                ExistingLink = true;
-                break;
-              }
-              if (connected[i].Index == (byte)LinkTypes.NotUsed)
-              {
-                SpaceAvailable = true;
-                if (i < SpaceAt)
-                  SpaceAt = i;
-              }
-            }
-
-            if (!ExistingLink && SpaceAvailable)
-            {
-              connected[SpaceAt].Index = currEntry.Index;
-              connected[SpaceAt].Distance = calcLinkDistance(connected, currEntry, senderOut);
-            }
-          }
         }
       }
       catch( Exception ex )
@@ -499,19 +536,70 @@ namespace MapView.RmpViewForm
       Refresh();
     }
 
+    private void cbLink_Leave(ComboBox sender, int senderIndex)
+    {
+      if (loadingGUI)
+        return;
+
+      if (AutoconnectNodes.Checked)
+      {
+        RmpEntry connected = map.Rmp[currEntry[senderIndex].Index];
+        bool ExistingLink = false;
+        bool SpaceAvailable = false;
+        int SpaceAt = 512;
+        for (int i = 0; i < 5; i++)
+        {
+          if (connected[i].Index == (byte)sender.SelectedItem)
+          {
+            ExistingLink = true;
+            break;
+          }
+          if (connected[i].Index == (byte)LinkTypes.NotUsed)
+          {
+            SpaceAvailable = true;
+            if (i < SpaceAt)
+              SpaceAt = i;
+          }
+        }
+
+        if (!ExistingLink && SpaceAvailable)
+        {
+          connected[SpaceAt].Index = currEntry.Index;
+          connected[SpaceAt].Distance = calcLinkDistance(connected, currEntry, null);
+        }
+        Refresh();
+
+      }
+    }
+
 		private void cbLink1_SelectedIndexChanged(object sender, System.EventArgs e)
 		{
 			cbLink_SelectedIndexChanged( cbLink1, 0, txtDist1);
 		}
+
+    private void cbLink1_Leave(object sender, EventArgs e)
+    {
+      cbLink_Leave(cbLink1, 0);
+    }
 
 		private void cbLink2_SelectedIndexChanged(object sender, System.EventArgs e)
 		{
       cbLink_SelectedIndexChanged(cbLink2, 1, txtDist2);
 		}
 
+    private void cbLink2_Leave(object sender, EventArgs e)
+    {
+      cbLink_Leave(cbLink2, 1);
+    }
+
 		private void cbLink3_SelectedIndexChanged(object sender, System.EventArgs e)
 		{
       cbLink_SelectedIndexChanged(cbLink3, 2, txtDist3);
+    }
+
+    private void cbLink3_Leave(object sender, EventArgs e)
+    {
+      cbLink_Leave(cbLink3, 2);
     }
 
 		private void cbLink4_SelectedIndexChanged(object sender, System.EventArgs e)
@@ -519,10 +607,20 @@ namespace MapView.RmpViewForm
       cbLink_SelectedIndexChanged(cbLink4, 3, txtDist4);
 		}
 
+    private void cbLink4_Leave(object sender, EventArgs e)
+    {
+      cbLink_Leave(cbLink4, 3);
+    }
+
 		private void cbLink5_SelectedIndexChanged(object sender, System.EventArgs e)
 		{
       cbLink_SelectedIndexChanged(cbLink5, 4, txtDist5);
 		}
+
+    private void cbLink5_Leave(object sender, EventArgs e)
+    {
+      cbLink_Leave(cbLink5, 4);
+    }
 
 		private void btnRemove_Click(object sender, System.EventArgs e)
 		{
@@ -784,6 +882,7 @@ namespace MapView.RmpViewForm
         cbUsage.SelectedIndex = Int32.Parse(NodeData[5]);
       }
     }
+
 	}
 
 	public class RmpPanel : MapPanel
