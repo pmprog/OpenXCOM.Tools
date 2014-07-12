@@ -3,6 +3,7 @@ using System.Drawing;
 using System.ComponentModel;
 using System.Windows.Forms;
 using System.Data;
+using MapView.Forms.MainWindow;
 using XCom;
 using XCom.Interfaces;
 using System.Drawing.Drawing2D;
@@ -35,7 +36,11 @@ namespace MapView
 		//public event StringDelegate SendMessage;
 
 		public MainWindow()
-		{
+        {
+            /***********************/
+            InitializeComponent();
+            /***********************/
+
 			#region Setup SharedSpace information and paths
 			SharedSpace sharedSpace = SharedSpace.Instance;
 			sharedSpace.GetObj("MapView", this);
@@ -80,14 +85,11 @@ namespace MapView
 
 			instance = this;
 
-			/***********************/
-			InitializeComponent();
-			/***********************/
-
 			mapList.TreeViewNodeSorter = new System.Collections.CaseInsensitiveComparer();
 
 			toolStripContainer1.ContentPanel.Controls.Add(mapView);
-			MakeToolstrip(toolStrip);
+		    var mainToolStripButtonsFactory = new MainToolStripButtonsFactory();
+            mainToolStripButtonsFactory.MakeToolstrip(toolStrip);
 			toolStrip.Items.Add(new ToolStripSeparator());
 
 			LogFile.Instance.WriteLine("Main view window created");
@@ -477,16 +479,24 @@ namespace MapView
 			if (NotifySave() == DialogResult.Cancel)
 				return;
 
-			if (mapList.SelectedNode.Tag is IMapDesc)
+            IMapDesc imd = mapList.SelectedNode.Tag as IMapDesc;
+            if (imd  != null)
 			{
-				IMapDesc imd = (IMapDesc)mapList.SelectedNode.Tag;
 				miExport.Enabled = true;
-				mapView.SetMap(imd.GetMapFile());
+			    var map = imd.GetMapFile();
+				mapView.SetMap(map);
 
 				statusMapName.Text = "Map:" + imd.Name;
-				tsMapSize.Text = "Size: " + mapView.View.Map.MapSize.ToString();
+			    if (map != null)
+			    {
+			        tsMapSize.Text = "Size: " + map.MapSize.ToString();
+			    }
+			    else
+			    {
+                    tsMapSize.Text = "Size: Unknown";
+			    }
 
-				//turn off door animations
+			    //turn off door animations
 				if (miDoors.Checked)
 				{
 					miDoors.Checked = false;
@@ -505,12 +515,10 @@ namespace MapView
 				//Reset all observer events
 				foreach (string key in registeredForms.Keys)
 				{
-					Form f = registeredForms[key];
-
-					if (f is Map_Observer_Form)
+                    var frm = registeredForms[key] as Map_Observer_Form;
+					if (frm != null)
 					{
-						Map_Observer_Form frm = (Map_Observer_Form)f;
-						SetMap(mapView.View.Map, frm);
+						SetMap(map, frm);
 					}
 				}
 
@@ -699,114 +707,14 @@ namespace MapView
 
 		private void miInfo_Click(object sender, System.EventArgs e)
 		{
+            if (mapView.Map == null) return;
 			MapInfoForm mif = new MapInfoForm();
 			mif.Show();
 			mif.Map = mapView.Map;
 		}
 
-		/// <summary>
-		/// Adds buttons for Up,Down,Cut,Copy and Paste to a toolstrip as well as sets some properties for the toolstrip
-		/// </summary>
-		/// <param name="toolStrip"></param>
-		public void MakeToolstrip(ToolStrip toolStrip)
-		{
-			System.Windows.Forms.ToolStripButton btnUp = new System.Windows.Forms.ToolStripButton();
-			System.Windows.Forms.ToolStripButton btnDown = new System.Windows.Forms.ToolStripButton();
-			System.Windows.Forms.ToolStripButton btnCut = new System.Windows.Forms.ToolStripButton();
-			System.Windows.Forms.ToolStripButton btnCopy = new System.Windows.Forms.ToolStripButton();
-			System.Windows.Forms.ToolStripButton btnPaste = new System.Windows.Forms.ToolStripButton();
-			// 
-			// toolStrip1
-			// 
-			//toolStrip.Dock = System.Windows.Forms.DockStyle.None;
-			//toolStrip.GripMargin = new System.Windows.Forms.Padding(0);
-			//toolStrip.GripStyle = System.Windows.Forms.ToolStripGripStyle.Hidden;
-			toolStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            btnUp,
-            btnDown,
-            btnCut,
-            btnCopy,
-            btnPaste});
-			//toolStrip1.LayoutStyle = System.Windows.Forms.ToolStripLayoutStyle.VerticalStackWithOverflow;
-			toolStrip.Padding = new System.Windows.Forms.Padding(0);
-			toolStrip.RenderMode = System.Windows.Forms.ToolStripRenderMode.System;
-			toolStrip.TabIndex = 1;
-			// 
-			// btnUp
-			// 
-			btnUp.AutoSize = false;
-			btnUp.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-			btnUp.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
-			btnUp.ImageTransparentColor = System.Drawing.Color.Magenta;
-			btnUp.Name = "btnUp";
-			btnUp.Size = new System.Drawing.Size(25, 25);
-			btnUp.Text = "toolStripButton1";
-			btnUp.ToolTipText = "Level Up";
-			btnUp.Click += delegate(object sender, EventArgs e)
-			{
-				MapViewPanel.Instance.View.Map.Up();
-			};
-			// 
-			// btnDown
-			// 
-			btnDown.AutoSize = false;
-			btnDown.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-			btnDown.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
-			btnDown.ImageTransparentColor = System.Drawing.Color.Magenta;
-			btnDown.Name = "btnDown";
-			btnDown.Size = new System.Drawing.Size(25, 25);
-			btnDown.Text = "toolStripButton2";
-			btnDown.ToolTipText = "Level Down";
-			btnDown.Click += delegate(object sender, EventArgs e)
-			{
-				MapViewPanel.Instance.View.Map.Down();
-			};
-			// 
-			// btnCut
-			// 
-			btnCut.AutoSize = false;
-			btnCut.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-			btnCut.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
-			btnCut.ImageTransparentColor = System.Drawing.Color.Magenta;
-			btnCut.Name = "btnCut";
-			btnCut.Size = new System.Drawing.Size(25, 25);
-			btnCut.Text = "toolStripButton3";
-			btnCut.ToolTipText = "Cut";
-			btnCut.Click += new EventHandler(MapViewPanel.Instance.Cut_click);
-			// 
-			// btnCopy
-			// 
-			btnCopy.AutoSize = false;
-			btnCopy.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-			btnCopy.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
-			btnCopy.ImageTransparentColor = System.Drawing.Color.Magenta;
-			btnCopy.Name = "btnCopy";
-			btnCopy.Size = new System.Drawing.Size(25, 25);
-			btnCopy.Text = "toolStripButton4";
-			btnCopy.ToolTipText = "Copy";
-			btnCopy.Click += new EventHandler(MapViewPanel.Instance.Copy_click);
-			// 
-			// btnPaste
-			// 
-			btnPaste.AutoSize = false;
-			btnPaste.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-			btnPaste.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
-			btnPaste.ImageTransparentColor = System.Drawing.Color.Magenta;
-			btnPaste.Name = "btnPaste";
-			btnPaste.Size = new System.Drawing.Size(25, 25);
-			btnPaste.Text = "toolStripButton5";
-			btnPaste.ToolTipText = "Paste";
-			btnPaste.Click += new EventHandler(MapViewPanel.Instance.Paste_click);
 
-			Assembly a = Assembly.GetExecutingAssembly();
-			btnCut.Image = Bitmap.FromStream(a.GetManifestResourceStream("MapView._Embedded.cut.gif"));
-			btnPaste.Image = Bitmap.FromStream(a.GetManifestResourceStream("MapView._Embedded.paste.gif"));
-			btnCopy.Image = Bitmap.FromStream(a.GetManifestResourceStream("MapView._Embedded.copy.gif"));
-			btnUp.Image = Bitmap.FromStream(a.GetManifestResourceStream("MapView._Embedded.up.gif"));
-			btnDown.Image = Bitmap.FromStream(a.GetManifestResourceStream("MapView._Embedded.down.gif"));
-		}
-
-		private void miExport_Click(object sender, EventArgs e)
+	    private void miExport_Click(object sender, EventArgs e)
 		{
 			//if (mapList.SelectedNode.Parent == null)//top level node - bad
 			//    throw new Exception("miExport_Click: Should not be here");

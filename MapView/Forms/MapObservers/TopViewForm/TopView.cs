@@ -3,6 +3,7 @@ using System.Drawing;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Windows.Forms;
+using MapView.Forms.MainWindow;
 using XCom;
 using XCom.Interfaces;
 using System.Drawing.Drawing2D;
@@ -41,8 +42,9 @@ namespace MapView.TopViewForm
 			//LogFile.Instance.WriteLine("Start TopView window creation");		
 
 			InitializeComponent();
-
-			MainWindow.Instance.MakeToolstrip(toolStrip);
+         
+            var mainToolStripButtonsFactory = new MainToolStripButtonsFactory();
+            mainToolStripButtonsFactory.MakeToolstrip(toolStrip);
 
 			SuspendLayout();
 			topViewPanel = new TopViewPanel();
@@ -203,7 +205,9 @@ namespace MapView.TopViewForm
 
 		private void fill_click(object sender, EventArgs evt)
 		{
-			Point s = new Point(0, 0);
+            var map = MapViewPanel.Instance.View.Map;
+		    if (map == null) return;
+            Point s = new Point(0, 0);
 			Point e = new Point(0, 0);
 
 			s.X = Math.Min(MapViewPanel.Instance.View.StartDrag.X, MapViewPanel.Instance.View.EndDrag.X);
@@ -214,10 +218,9 @@ namespace MapView.TopViewForm
 
 			//row   col
 			//y     x
-
 			for (int c = s.X; c <= e.X; c++)
 				for (int r = s.Y; r <= e.Y; r++)
-					((XCMapTile)MapViewPanel.Instance.View.Map[r, c])[bottom.SelectedQuadrant] = TileView.Instance.SelectedTile;
+                    ((XCMapTile)map[r, c])[bottom.SelectedQuadrant] = TileView.Instance.SelectedTile;
 			Globals.MapChanged = true;
 			MapViewPanel.Instance.Refresh();
 			Refresh();

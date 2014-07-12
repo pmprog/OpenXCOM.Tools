@@ -67,7 +67,8 @@ namespace MapView
 		
 		public void Paste()
 		{
-			if(copied!=null)
+            if (map == null) return;
+            if (copied != null)
 			{
 				//row  col
 				//y    x
@@ -96,7 +97,8 @@ namespace MapView
 
 		public void ClearSelection()
 		{
-			Point s=new Point(0,0);
+            if (map == null) return;
+            Point s = new Point(0, 0);
 			Point e=new Point(0,0);
 
 			s.X=Math.Min(startDrag.X,endDrag.X);
@@ -114,6 +116,7 @@ namespace MapView
 
 		public void Copy()
 		{
+		    if (map == null) return;
 			Point s=new Point(0,0);
 			Point e=new Point(0,0);
 

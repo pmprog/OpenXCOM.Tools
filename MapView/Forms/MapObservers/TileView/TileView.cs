@@ -194,7 +194,14 @@ namespace MapView
 			set 
 			{ 
 				base.Map = value;
-				Tiles = ((XCMapFile)value).Tiles;
+                if (value == null)
+                {
+                    Tiles = null;
+                }
+                else
+                {
+                    Tiles = value.Tiles;
+                }
 			}
 		}
 
@@ -476,23 +483,30 @@ namespace MapView
 		{
 			set
 			{
-				if(type==TileType.All)
-				{
-					//tiles=value;
-					tiles = new ITile[value.Count+1];
-					tiles[0]=null;
-					for(int i=0;i<value.Count;i++)
-						tiles[i+1]=value[i];
-				}
-				else
-				{
-					List<ITile> list = new List<ITile>();
-					for(int i=0;i<value.Count;i++)
-						if(value[i].Info.TileType==type)
-							list.Add(value[i]);
-					tiles = list.ToArray();
-				}
-				OnResize(null);
+			    if (value != null)
+			    {
+			        if (type == TileType.All)
+			        {
+			            //tiles=value;
+			            tiles = new ITile[value.Count + 1];
+			            tiles[0] = null;
+			            for (int i = 0; i < value.Count; i++)
+			                tiles[i + 1] = value[i];
+			        }
+			        else
+			        {
+			            var list = new List<ITile>();
+			            for (int i = 0; i < value.Count; i++)
+			                if (value[i].Info.TileType == type)
+			                    list.Add(value[i]);
+			            tiles = list.ToArray();
+			        }
+			    }
+			    else
+			    {
+			        tiles = null;
+			    }
+			    OnResize(null);
 			}
 		}
 
@@ -515,6 +529,7 @@ namespace MapView
 		protected override void OnMouseDown(MouseEventArgs e)
 		{
 			this.Focus();
+		    if (tiles == null) return;
 			int x = e.X/(width+2*space);
 			int y = (e.Y-startY)/(height+2*space);
 

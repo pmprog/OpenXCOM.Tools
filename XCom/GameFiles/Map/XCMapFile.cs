@@ -23,16 +23,16 @@ namespace XCom
 			this.blankPath = blankPath;
 			dependencies = depList;
 
-      if (!File.Exists(basePath + basename + ".MAP"))
-      {
-        MessageBox.Show("File '" + basePath + basename + ".MAP' was not found");
-        return;
-      }
+		    var filePath = basePath + basename + ".MAP";
+		    if (!File.Exists(filePath))
+		    {
+		        throw new FileNotFoundException(filePath);
+		    }
 
-			for (int i = 0; i < tiles.Count; i++)
+		    for (int i = 0; i < tiles.Count; i++)
 				tiles[i].MapID = i;
 
-			readMap(File.OpenRead(basePath + basename + ".MAP"), tiles);
+            readMap(File.OpenRead(filePath), tiles);
 
 			if (File.Exists(blankPath + basename + BlankFile.Extension))
 			{

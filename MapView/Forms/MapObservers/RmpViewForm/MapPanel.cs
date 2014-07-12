@@ -46,6 +46,7 @@ namespace MapView.RmpViewForm
         /// <returns>null if (x,y) is an invalid location for a tile</returns>
         public XCMapTile GetTile(int x, int y)
         {
+            if (map == null) return null;
             Point p = convertCoordsDiamond(x, y);
             if (p.Y >= 0 && p.Y < map.MapSize.Rows &&
                 p.X >= 0 && p.X < map.MapSize.Cols)
@@ -64,7 +65,7 @@ namespace MapView.RmpViewForm
         protected override void OnMouseDown(MouseEventArgs e)
         {
             //Point pt = convertCoordsDiamond(e.X, e.Y);
-
+            if (map == null) return;
             if (MapPanelClicked != null)
             {
                 XCom.Interfaces.Base.IMapTile tile = null;
