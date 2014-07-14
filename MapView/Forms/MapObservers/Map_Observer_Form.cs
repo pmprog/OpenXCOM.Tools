@@ -7,7 +7,7 @@ using XCom;
 
 namespace MapView
 {
-	public class Map_Observer_Form:Form,IMap_Observer
+	public class Map_Observer_Form: Form, IMap_Observer
 	{
 		protected IMap_Base map;
 		private DSShared.Windows.RegistryInfo registryInfo;

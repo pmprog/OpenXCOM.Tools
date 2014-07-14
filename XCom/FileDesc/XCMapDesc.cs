@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.IO;
 using XCom.Interfaces.Base;
 
 namespace XCom
@@ -33,6 +34,8 @@ namespace XCom
 
 		public override IMap_Base GetMapFile() 
 		{
+            var filePath = basePath + basename + ".MAP";
+		    if (!File.Exists(filePath)) return null;
 			ImageInfo images = GameInfo.ImageInfo;
 
 			List<ITile> a = new List<ITile>();
@@ -49,7 +52,7 @@ namespace XCom
 				}
 			}
 
-			XCMapFile map = new XCMapFile(basename, basePath, blankPath, a, dependencies);
+            XCMapFile map = new XCMapFile(basename, basePath, blankPath, a, dependencies);
 			map.Rmp = new RmpFile(basename, rmpPath);
 			return map;
 		}

@@ -61,23 +61,27 @@ namespace MapView.TopViewForm
 			{
 				int oldWid = hWidth;
 
-				if (height > width / 2)
-				{
-					//use width
-					hWidth = width / (map.MapSize.Rows + map.MapSize.Cols);
+			    if (map.MapSize.Rows > 0 || map.MapSize.Cols > 0)
+			    {
+			        if (height > width / 2)
+			        {
+			            //use width
+			            hWidth = width / (map.MapSize.Rows + map.MapSize.Cols);
 
-					if (hWidth % 2 != 0)
-						hWidth--;
+			            if (hWidth % 2 != 0)
+			                hWidth--;
 
-					hHeight = hWidth / 2;
-				}
-				else
-				{ //use height
-					hHeight = height / (map.MapSize.Rows + map.MapSize.Cols);
-					hWidth = hHeight * 2;
-				}
+			            hHeight = hWidth / 2;
+			        }
+			        else
+			        {
+			            //use height
+			            hHeight = height / (map.MapSize.Rows + map.MapSize.Cols);
+			            hWidth = hHeight * 2;
+			        }
+			    }
 
-				if (hHeight < minHeight)
+			    if (hHeight < minHeight)
 				{
 					hWidth = minHeight * 2;
 					hHeight = minHeight;
@@ -272,7 +276,7 @@ namespace MapView.TopViewForm
 		protected override void OnMouseDown(MouseEventArgs e)
 		{
 			int row, col;
-
+		    if (map == null) return;
 			convertCoordsDiamond(e.X - offX, e.Y - offY,out row, out col);
 			map.SelectedTile = new MapLocation(row,col, map.CurrentHeight);
 			mDown = true;

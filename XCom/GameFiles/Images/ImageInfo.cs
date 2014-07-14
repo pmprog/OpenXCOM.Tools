@@ -32,7 +32,7 @@ namespace XCom
 			while((kv=vars.ReadLine())!=null)
 			{
 				ImageDescriptor img = new ImageDescriptor(kv.Keyword.ToUpper(),kv.Rest);
-				images[kv.Keyword] = img;
+				images[kv.Keyword.ToUpper()] = img;
 			}
 			sr.Close();
 		}

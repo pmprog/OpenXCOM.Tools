@@ -1,4 +1,5 @@
-﻿<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="3.5">
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="4.0">
   <PropertyGroup>
     <ProjectType>Local</ProjectType>
     <ProductVersion>9.0.30729</ProductVersion>
@@ -24,7 +25,7 @@
     <UpgradeBackupLocation>
     </UpgradeBackupLocation>
     <SignAssembly>true</SignAssembly>
-    <OldToolsVersion>2.0</OldToolsVersion>
+    <OldToolsVersion>3.5</OldToolsVersion>
     <PublishUrl>publish\</PublishUrl>
     <Install>true</Install>
     <InstallFrom>Disk</InstallFrom>
@@ -40,6 +41,7 @@
     <IsWebBootstrapper>false</IsWebBootstrapper>
     <UseApplicationTrust>false</UseApplicationTrust>
     <BootstrapperEnabled>true</BootstrapperEnabled>
+    <TargetFrameworkVersion>v2.0</TargetFrameworkVersion>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <OutputPath>bin\Debug\</OutputPath>
@@ -80,6 +82,27 @@
     <WarningLevel>4</WarningLevel>
     <DebugType>none</DebugType>
     <ErrorReport>prompt</ErrorReport>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x86'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\x86\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <BaseAddress>285212672</BaseAddress>
+    <FileAlignment>4096</FileAlignment>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x86'">
+    <OutputPath>bin\x86\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <BaseAddress>285212672</BaseAddress>
+    <Optimize>true</Optimize>
+    <FileAlignment>4096</FileAlignment>
+    <PlatformTarget>x86</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System">
@@ -126,20 +149,29 @@
     <Compile Include="Args.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Map_Observer_Control.cs">
+    <Compile Include="Forms\Error\ErrorWindow.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Error\ErrorWindow.Designer.cs">
+      <DependentUpon>ErrorWindow.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Error\ErrorWindowAdapter.cs" />
+    <Compile Include="Forms\Error\IErrorHandler.cs" />
+    <Compile Include="Forms\MainWindow\MainToolStripButtonsFactory.cs" />
+    <Compile Include="Forms\MapObservers\Map_Observer_Control.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="Map_Observer_Form.cs">
+    <Compile Include="Forms\MapObservers\Map_Observer_Form.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="RmpViewForm\MapPanel.cs">
+    <Compile Include="Forms\MapObservers\RmpViewForm\MapPanel.cs">
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="Startup.cs" />
-    <Compile Include="TopViewForm\BottomPanel.cs">
+    <Compile Include="Forms\MapObservers\TopViewForm\BottomPanel.cs">
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="ByteView.cs">
@@ -206,10 +238,10 @@
     <Compile Include="PropertyForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="RmpViewForm\RmpView.cs">
+    <Compile Include="Forms\MapObservers\RmpViewForm\RmpView.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="RmpViewForm\RmpView.Designer.cs">
+    <Compile Include="Forms\MapObservers\RmpViewForm\RmpView.Designer.cs">
       <DependentUpon>RmpView.cs</DependentUpon>
     </Compile>
     <Compile Include="Settings.cs">
@@ -221,19 +253,19 @@
     <Compile Include="TilesetForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="TileView\TileView.cs">
+    <Compile Include="Forms\MapObservers\TileView\TileView.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="SimpleMapPanel.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="TopViewForm\TopView.cs">
+    <Compile Include="Forms\MapObservers\TopViewForm\TopView.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="TopViewForm\TopView.Designer.cs">
+    <Compile Include="Forms\MapObservers\TopViewForm\TopView.Designer.cs">
       <DependentUpon>TopView.cs</DependentUpon>
     </Compile>
-    <Compile Include="TopViewForm\TopViewPanel.cs">
+    <Compile Include="Forms\MapObservers\TopViewForm\TopViewPanel.cs">
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="TreeEditor.cs">
@@ -243,24 +275,27 @@
     <Compile Include="MapViewPanel\View.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="_MainWindow.cs">
+    <Compile Include="Forms\MainWindow\_MainWindow.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="_MainWindow.Designer.cs">
+    <Compile Include="Forms\MainWindow\_MainWindow.Designer.cs">
       <DependentUpon>_MainWindow.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="Forms\Error\ErrorWindow.resx">
+      <DependentUpon>ErrorWindow.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="PathsEditor.resx">
       <DependentUpon>PathsEditor.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="RmpViewForm\RmpView.resx">
+    <EmbeddedResource Include="Forms\MapObservers\RmpViewForm\RmpView.resx">
       <SubType>Designer</SubType>
       <DependentUpon>RmpView.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="TileView\TileView.resx">
+    <EmbeddedResource Include="Forms\MapObservers\TileView\TileView.resx">
       <SubType>Designer</SubType>
       <DependentUpon>TileView.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="TopViewForm\TopView.resx">
+    <EmbeddedResource Include="Forms\MapObservers\TopViewForm\TopView.resx">
       <SubType>Designer</SubType>
       <DependentUpon>TopView.cs</DependentUpon>
     </EmbeddedResource>
@@ -284,7 +319,7 @@
     <EmbeddedResource Include="_Embedded\Extra.TAB" />
     <EmbeddedResource Include="_Embedded\paste.gif" />
     <EmbeddedResource Include="_Embedded\up.gif" />
-    <EmbeddedResource Include="_MainWindow.resx">
+    <EmbeddedResource Include="Forms\MainWindow\_MainWindow.resx">
       <SubType>Designer</SubType>
       <DependentUpon>_MainWindow.cs</DependentUpon>
     </EmbeddedResource>
@@ -324,6 +359,7 @@
       <Install>false</Install>
     </BootstrapperPackage>
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
     <PreBuildEvent>
